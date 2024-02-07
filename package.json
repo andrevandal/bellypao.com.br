@@ -1,0 +1,54 @@
+{
+  "name": "@andrevandal/bellypao.com.br",
+  "type": "module",
+  "version": "0.0.1",
+  "private": false,
+  "packageManager": "pnpm@8.15.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrevandal/bellypao.com.br.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrevandal/bellypao.com.br/issues"
+  },
+  "homepage": "https://bellypao.com.br",
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.3.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "simple-git-hooks": "^2.9.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "tailwindcss": "insiders"
+    }
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "pnpx simple-git-hooks",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write --cache ."
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --cache --ignore-unknown"
+    ]
+  }
+}
