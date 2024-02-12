@@ -1,0 +1,11 @@
+export type AvailableIcons =
+  | 'bread'
+  | 'clock'
+  | 'map-pin'
+  | 'facebook'
+  | 'whatsapp'
+  | 'phone'
+  | 'truck'
+  | 'instagram'
+  | 'shop'
+  | 'wheat'

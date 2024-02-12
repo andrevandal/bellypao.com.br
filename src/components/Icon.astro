@@ -1,19 +1,8 @@
 ---
-export type AvailableIcons =
-  | 'bread'
-  | 'clock'
-  | 'map-pin'
-  | 'facebook'
-  | 'whatsapp'
-  | 'phone'
-  | 'truck'
-  | 'instagram'
-  | 'shop'
-  | 'wheat'
+import type { AvailableIcons } from '../types.ts'
 
 interface Props {
   name: AvailableIcons
-  variant?: 'red'
   width?: string
   height?: string
   class?: string
