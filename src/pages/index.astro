@@ -1,5 +1,8 @@
 ---
-
+import TheFooter from '../components/TheFooter.astro'
+import TheHeader from '../components/TheHeader.astro'
+import BaseButton from '../components/BaseButton.astro'
+// import Icon from '../components/Icon.astro'
 ---
 
 <html class='h-full' lang='pt-br'>
@@ -11,27 +14,37 @@
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      rel='preconnect'
-      href='https://ik.imagekit.io/pedrohenri/'
-      crossorigin
+      href='/css/fonts.css'
+      rel='preload'
+      as='style'
+      onload="this.rel='stylesheet'"
     />
     <link
-      href='https://fonts.googleapis.com/css2?family=Quicksand:wght@400..900&display=swap'
+      href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'
       rel='preload'
       as='style'
       onload="this.rel='stylesheet'"
     />
   </head>
   <body class='h-full'>
-    <div class='h-full grid place-items-center bg-brown-700'>
-      <div class='flex flex-col gap-2'>
-        <img src='/images/logo.png' alt='Logo' width='300' height='75' />
-        <a
-          class='text-[#FFECCC] font-medium hover:text-[#FFAA33] transition-colors text-center'
+    <TheHeader>
+      <section
+        class='flex flex-col items-center justify-center gap-y-6 pt-12 pb-60 px-6'
+      >
+        <h1
+          class='font-fields font-extrabold text-[2.5rem] leading-[3rem] text-center text-[#FFECCC]'
+        >
+          O aroma do pão quente é um convite para começar o dia com sabor!
+        </h1>
+        <BaseButton
+          variant='primary'
+          size='sm'
+          icon='whatsapp'
           href='https://wa.me/5511945488607'
-          >(11) 94548-8607
-        </a>
-      </div>
-    </div>
+          >Sinta este aroma, fale conosco!</BaseButton
+        >
+      </section>
+    </TheHeader>
+    <TheFooter />
   </body>
 </html>

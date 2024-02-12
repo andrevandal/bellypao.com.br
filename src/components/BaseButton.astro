@@ -1,0 +1,49 @@
+---
+import Icon, { type AvailableIcons } from './Icon.astro'
+
+type Sizes = 'sm' | 'base'
+
+interface Props {
+  href?: string
+  variant: string
+  icon?: AvailableIcons
+  reverse?: boolean
+  size?: Sizes
+}
+
+const { variant, icon, reverse, size = 'base' } = Astro.props
+---
+
+<a
+  href={Astro.props.href}
+  class:list={[
+    'btn',
+    `btn-${variant}`,
+    {
+      'btn-reverse': reverse,
+      'btn-sm': size === 'sm',
+      'btn-base': size === 'base',
+    },
+  ]}
+>
+  <span><slot /></span>
+  {icon && <Icon name={icon} />}
+</a>
+
+<style>
+  .btn {
+    @apply w-fit flex flex-row py-4 px-6 gap-x-2 rounded-lg;
+  }
+  .btn-base {
+    @apply py-4 px-6;
+  }
+  .btn-sm {
+    @apply py-3 px-3;
+  }
+  .btn-primary {
+    @apply bg-[#FFAA33] text-[#503C2D];
+  }
+  .btn-reverse {
+    @apply flex-row-reverse;
+  }
+</style>

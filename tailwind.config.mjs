@@ -7,11 +7,25 @@ export default {
   theme: {
     fontFamily: {
       sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
+      fields: ['Fields Display', 'Fields Display Fallback'],
+    },
+    container: {
+      center: true,
+      screens: {
+        DEFAULT: '375px',
+        // sm: '640px',
+        // lg: '1024px',
+      },
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+      },
     },
     extend: {
       colors: {
         brown: {
           700: '#503C2D',
+          800: '#423024',
         },
       },
     },

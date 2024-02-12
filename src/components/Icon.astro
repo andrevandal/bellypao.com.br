@@ -1,0 +1,31 @@
+---
+export type AvailableIcons =
+  | 'bread'
+  | 'clock'
+  | 'map-pin'
+  | 'facebook'
+  | 'whatsapp'
+  | 'phone'
+  | 'truck'
+  | 'instagram'
+  | 'shop'
+  | 'wheat'
+
+interface Props {
+  name: AvailableIcons
+  variant?: 'red'
+  width?: string
+  height?: string
+  class?: string
+}
+
+const { name, width, height, class: className } = Astro.props
+---
+
+<svg
+  class:list={['icon', className]}
+  width={width ?? '24'}
+  height={height ?? '24'}
+>
+  <use xlink:href={`/images/icons.svg#${name}`}></use>
+</svg>

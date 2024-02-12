@@ -1,0 +1,158 @@
+---
+import BaseButton from '../components/BaseButton.astro'
+import Icon from '../components/Icon.astro'
+---
+
+<footer>
+  <section class='bg-[#FFECCC] py-8'>
+    <div class='container flex flex-col gap-2 items-center justify-center'>
+      <h2 class='text-2xl text-brown-700 text-center font-extrabold'>
+        Demonstre gratidão aos seus colaboradores com alimentos de alta
+        qualidade!
+      </h2>
+      <BaseButton
+        variant='primary'
+        icon='whatsapp'
+        href='https://wa.me/5511945488607'>Fale conosco via WhatsApp</BaseButton
+      >
+    </div>
+  </section>
+  <section class='bg-brown-700 py-8 text-[#FFECCC]'>
+    <h2 class='sr-only'>Rodapé</h2>
+    <div class='container flex flex-col gap-y-6'>
+      <article>
+        <h3
+          class='mb-2 text-xl leading-6 tracking-tighter font-bold text-center'
+        >
+          Fale conosco
+        </h3>
+        <ul>
+          <li class='flex flex-row gap-x-1 justify-center py-2'>
+            <Icon
+              class:list={['h-6 w-6 text-[#FFAA33]']}
+              width='24'
+              height='24 '
+              name='clock'
+            />
+            <p class='text-[#FFECCC] text-base leading-5 w-fit text-center'>
+              Segunda a Sexta das 6h ás 18h30<br />
+              Sábado e Domingo das 6h ás 11h30
+            </p>
+          </li>
+          <li class='flex flex-row gap-x-1 justify-center py-2'>
+            <Icon
+              class:list={['h-6 w-6 text-[#FFAA33]']}
+              width='24'
+              height='24 '
+              name='whatsapp'
+            />
+            <a
+              href='https://wa.me/5511945488607'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-[#FFECCC] text-base leading-5 w-fit text-center'
+            >
+              (11) 94548-8607
+            </a>
+          </li>
+          <li class='flex flex-row gap-x-1 justify-center py-2'>
+            <Icon
+              class:list={['h-6 w-6 text-[#FFAA33]']}
+              width='24'
+              height='24 '
+              name='phone'
+            />
+            <a
+              href='tel:01129374674'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-[#FFECCC] text-base leading-5 w-fit text-center'
+            >
+              (11) 2937-4674
+            </a>
+          </li>
+          <li class='flex flex-row gap-x-1 justify-center py-2'>
+            <Icon
+              class:list={['h-6 w-6 text-[#FFAA33]']}
+              width='24'
+              height='24 '
+              name='map-pin'
+            />
+            <p class='text-[#FFECCC] text-base leading-5 w-[25ch] text-center'>
+              Rua Porteiras, 254 - Cid. Jardim Cumbica - Guarulhos (SP)
+            </p>
+          </li>
+        </ul>
+        <ul class='flex justify-center items-center gap-x-2 mt-3'>
+          <li>
+            <a
+              href='https://www.instagram.com/bellypao/'
+              class='w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <Icon
+                class:list={['h-5 w-5 text-[#FFECCC]']}
+                width='20'
+                height='20'
+                name='instagram'
+              />
+            </a>
+          </li>
+
+          <li>
+            <a
+              href='https://www.facebook.com/bellypao/'
+              class='w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <Icon
+                class:list={['h-5 w-5']}
+                width='20'
+                height='20'
+                name='facebook'
+              />
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class='flex flex-col gap-y-4 items-center track'>
+        <a href='#' class='w-fit'>
+          <img
+            src='/images/logo-bellypao.h48.png'
+            width='191'
+            height='48'
+            alt='Logo Belly Pão'
+            loading='lazy'
+            decoding='async'
+          />
+        </a>
+        <p
+          class='text-base text-center font-medium leading-5 max-w- whitespace-break-spaces'
+        >
+          2023 © Belly Pão.<br />Todos os direitos reservados.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class='bg-brown-700 text-[#FFECCC]'>
+    <div class='container flex items-center justify-center'>
+      <div
+        class='py-[0.625rem] inline-flex items-center gap-x-2 justify-center border-t-brown-800 border-t border-solid'
+      >
+        <span class='text-sm font-medium'>Desenvolvido por</span>
+        <a href='https://pedrohenri.com.br' target='_blank'>
+          <img
+            src='/images/logo-pedro-henri.png'
+            alt='Pedro Henrique'
+            width='157'
+            height='20'
+            loading='lazy'
+            decoding='async'
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+</footer>

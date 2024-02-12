@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'Fields Display';
+  src: url('/fonts/FieldsDisplayBlackRegular.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fields Display Fallback';
+  src: local(Arial);
+  font-weight: 900;
+  size-adjust: 104%;
+  ascent-override: 72%;
+  descent-override: 8%;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Fields Display Extra';
+  src: url('/fonts/FieldsDisplayExtraBoldRegular.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fields Display Fallback';
+  src: local(Arial);
+  font-weight: 800;
+  size-adjust: 103%;
+  ascent-override: 70%;
+  descent-override: 8%;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Fields Display';
+  src: url('/fonts/FieldsDisplayBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fields Display Fallback';
+  src: local(Arial);
+  font-weight: 700;
+  size-adjust: 102%;
+  ascent-override: 65%;
+  descent-override: 10%;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Fields Display Semi';
+  src: url('/fonts/FieldsDisplaySemiBoldRegular.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fields Display Fallback';
+  src: local(Arial);
+  font-weight: 600;
+  size-adjust: 101%;
+  ascent-override: 67%;
+  descent-override: 8%;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Fields Display';
+  src: url('/fonts/FieldsDisplayMediumRegular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fields Display Fallback';
+  src: local(Arial);
+  font-weight: 500;
+  size-adjust: 100%;
+  ascent-override: 63%;
+  descent-override: 9%;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Fields Display';
+  src: url('/fonts/FieldsDisplayRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fields Display Fallback';
+  src: local(Arial);
+  font-weight: 400;
+  size-adjust: 95%;
+  ascent-override: 67%;
+  descent-override: 11%;
+  line-gap-override: normal;
+}
