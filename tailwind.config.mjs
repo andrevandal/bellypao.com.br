@@ -7,7 +7,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
-      fields: ['Fields Display', 'Fields Display Fallback'],
+      fields: ['fields', ...defaultTheme.fontFamily.sans],
     },
     container: {
       center: true,
