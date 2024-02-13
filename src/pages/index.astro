@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../components/BaseLayout.astro'
 import BaseButton from '../components/BaseButton.astro'
+import Icon from '../components/Icon.astro'
 ---
 
 <BaseLayout title='Belly Pão'>
@@ -20,6 +21,167 @@ import BaseButton from '../components/BaseButton.astro'
       href='https://wa.me/5511945488607'
       >Sinta este aroma, fale conosco!</BaseButton
     >
+  </section>
+  <section id='diferencial' class='bg-white relative'>
+    <div class='absolute top-0 left-0 right-0 h-14 z-[1] bg-pattern-gradient'>
+    </div>
+    <div class='container relative z-[2] text-brown-700 text-center py-16'>
+      <div class='flex flex-col gap-y-2'>
+        <h2 class='font-fields font-extrabold text-[2rem] leading-[2.375rem]'>
+          Produtos frescos e ingredientes selecionados
+        </h2>
+        <h3 class='text-[#FFAA33] font-medium text-base leading-5 uppercase'>
+          Qualidade que Você Pode Saborear!
+        </h3>
+        <p class='font-medium'>
+          Nosso compromisso é oferecer produtos feitos com ingredientes frescos
+          e selecionados. Cada mordida é uma experiência única. Conheça a
+          diferença que a qualidade faz em nossos pães, bolos e salgados.
+        </p>
+        <BaseButton
+          variant='secondary-outline'
+          size='sm'
+          icon='whatsapp'
+          href='https://wa.me/5511945488607'
+          class:list={['mt-4']}>Você merece o melhor, fale conosco!</BaseButton
+        >
+      </div>
+      <div class='mt-6'>
+        <img
+          src='https://placehold.co/343x264/D0CAC6/503C2D'
+          alt='placehold'
+          width='343'
+          height='264'
+          class='aspect-[343/264] rounded-lg'
+          loading='lazy'
+          decoding='async'
+        />
+      </div>
+    </div>
+  </section>
+  <section id='servicos' class='bg-brown-700'>
+    <h2 class='sr-only'>Serviços</h2>
+    <div class='container py-8 flex flex-col gap-y-4'>
+      <article
+        class='flex-1 flex flex-col justify-center items-center px-4 py-6 text-[#FFECCC] text-center border border-brown-800 rounded-lg'
+      >
+        <div
+          class='w-20 h-20 p-4 flex rounded-lg border border-[#FFAA33] text-[#FFAA33] justify-center items-center mb-4'
+        >
+          <Icon name='truck' width='48' height='48' />
+        </div>
+        <h3 class='font-fields font-extrabold text-[2rem] leading-8 mb-2'>
+          Para empresas
+        </h3>
+        <p class='text-base leading-5'>
+          Proporcionamos experiências deliciosas com nosso serviço de <strong
+            >distribuição de café da manhã e tarde para empresas</strong
+          >. Surpreenda seus colaboradores com produtos frescos e de alta
+          qualidade.
+        </p>
+      </article>
+      <article
+        class='flex-1 flex flex-col justify-center items-center px-4 py-6 text-[#FFECCC] text-center border border-brown-800 rounded-lg'
+      >
+        <div
+          class='w-20 h-20 p-4 flex rounded-lg border border-[#FFAA33] text-[#FFAA33] justify-center items-center mb-4'
+        >
+          <Icon name='shop' width='48' height='48' />
+        </div>
+        <h3 class='font-fields font-extrabold text-[2rem] leading-8 mb-2'>
+          Atendimento local
+        </h3>
+        <p class='text-base leading-5'>
+          Estamos aqui para atender você, morador da região. Nossa padaria é um
+          ponto de encontro para aqueles que valorizam produtos feitos com
+          carinho. Visite-nos e sinta-se em casa.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section id='produtos'>
+    <div class='container text-brown-700 text-center pt-16 pb-8'>
+      <div class='flex flex-col gap-y-4'>
+        <h2
+          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] mb-2'
+        >
+          Leve qualidade e sabor à sua mesa!
+        </h2>
+        {
+          Array(7)
+            .fill(0)
+            .map(() => (
+              <img
+                src='https://placehold.co/343x343/D0CAC6/503C2D'
+                alt='placehold'
+                width='343'
+                height='343'
+                class='aspect-square rounded-lg'
+                loading='lazy'
+                decoding='async'
+              />
+            ))
+        }
+        <BaseButton
+          variant='primary'
+          size='sm'
+          icon='whatsapp'
+          href='https://wa.me/5511945488607'
+          block
+          centered
+          class:list={['mt-4']}>Prove essas delícias, fale conosco!</BaseButton
+        >
+      </div>
+    </div>
+  </section>
+  <section id='quem-somos' class='overflow-hidden'>
+    <div class='container text-brown-700 text-center pt-8 pb-14'>
+      <div class='flex flex-col gap-y-2'>
+        <h2 class='font-fields font-extrabold text-[2rem] leading-[2.375rem]'>
+          Quem somos
+        </h2>
+        <h3 class='text-[#FFAA33] font-medium text-base leading-5 uppercase'>
+          Compromisso, Qualidade e Crescimento Coletivo.
+        </h3>
+        <p class='font-medium'>
+          Com intenção de atender com excelência, a Belly Pão iniciou sua
+          jornada no mercado alimentício, priorizando a satisfação dos clientes.
+          Nos comprometemos a atender às necessidades com os melhores produtos,
+          seguindo rigorosos padrões de higiene e normas da ANVISA.
+        </p>
+        <p class='font-medium'>
+          Em busca do crescimento, confiamos no esforço, na vontade de trabalhar
+          e no suporte oferecido a uma equipe capacitada. Acreditamos no
+          potencial de cada funcionário, reconhecendo que o sucesso da empresa é
+          construído coletivamente.
+        </p>
+      </div>
+      <div class='mt-6'>
+        <div class='relative'>
+          <img
+            src='https://placehold.co/343x264/D0CAC6/503C2D'
+            alt='placehold'
+            width='343'
+            height='264'
+            class='aspect-[343/264] rounded-lg'
+            loading='lazy'
+            decoding='async'
+          />
+
+          <div
+            class='absolute top-[132.27px] left-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-brown-700 rounded-full text-[#FFAA33]'
+          >
+            <Icon name='wheat' width='24' height='24' />
+          </div>
+
+          <div
+            class='absolute top-[-23.73px] left-[319px] w-12 h-12 min-w-12 flex justify-center items-center bg-[#FFAA33] rounded-full text-brown-700'
+          >
+            <Icon name='bread' width='24' height='24' />
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <section class='bg-[#FFECCC] py-8 relative' slot='footer'>
     <div
@@ -44,3 +206,17 @@ import BaseButton from '../components/BaseButton.astro'
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .bg-pattern-gradient {
+    @apply bg-[length:311px_65px];
+
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 1) 100%
+      ),
+      url(/images/belly-pattern.png);
+  }
+</style>
