@@ -15,6 +15,7 @@ interface Props {
 }
 
 const {
+  href,
   variant,
   icon,
   reverse,
@@ -22,10 +23,13 @@ const {
   block = false,
   centered = false,
 } = Astro.props
+
+const isExternalLink =
+  href?.startsWith('http') || !href?.startsWith('/') || !href?.startsWith('#')
 ---
 
 <a
-  href={Astro.props.href}
+  href={href}
   class:list={[
     'btn',
     `btn-${variant}`,
@@ -37,6 +41,8 @@ const {
       'btn-base': size === 'base',
     },
   ]}
+  target={isExternalLink ? '_blank' : undefined}
+  rel={isExternalLink ? 'noopener noreferrer' : undefined}
 >
   <span><slot /></span>
   {icon && <Icon name={icon} />}
@@ -57,6 +63,9 @@ const {
   }
   .btn-primary-outline {
     @apply border border-[#FFAA33] text-[#FFAA33] hover:bg-[#FFAA33] hover:text-brown-700;
+  }
+  .btn-secondary-outline {
+    @apply border border-brown-700 text-brown-700 hover:bg-brown-700 hover:text-[#FFECCC];
   }
   .btn-center {
     @apply justify-center;
