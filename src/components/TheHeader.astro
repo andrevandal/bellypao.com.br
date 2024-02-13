@@ -21,10 +21,38 @@ import BaseButton from './BaseButton.astro'
         <span class='icon'></span>
       </label>
       <ul class='menu will-change-auto col-span-2 pt-4 box-border'>
-        <li><a class='nav-link' href='/#diferencial'>Diferencial</a></li>
-        <li><a class='nav-link' href='/#servicos'>Serviços</a></li>
-        <li><a class='nav-link' href='/#produtos'>Produtos</a></li>
-        <li><a class='nav-link' href='/#quem-somos'>Quem somos</a></li>
+        <li>
+          <a
+            class='nav-link'
+            href='/#diferencial'
+            onclick="document.getElementById('menu-opened').checked = false"
+            >Diferencial</a
+          >
+        </li>
+        <li>
+          <a
+            class='nav-link'
+            href='/#servicos'
+            onclick="document.getElementById('menu-opened').checked = false"
+            >Serviços</a
+          >
+        </li>
+        <li>
+          <a
+            class='nav-link'
+            href='/#produtos'
+            onclick="document.getElementById('menu-opened').checked = false"
+            >Produtos</a
+          >
+        </li>
+        <li>
+          <a
+            class='nav-link'
+            href='/#quem-somos'
+            onclick="document.getElementById('menu-opened').checked = false"
+            >Quem somos</a
+          >
+        </li>
         <li class='mt-2'>
           <BaseButton
             href='https://wa.me/5511945488607'
