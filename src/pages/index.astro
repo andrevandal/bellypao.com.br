@@ -1,50 +1,46 @@
 ---
-import TheFooter from '../components/TheFooter.astro'
-import TheHeader from '../components/TheHeader.astro'
+import BaseLayout from '../components/BaseLayout.astro'
 import BaseButton from '../components/BaseButton.astro'
-// import Icon from '../components/Icon.astro'
 ---
 
-<html class='h-full' lang='pt-br'>
-  <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <title>Belly Pão</title>
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://use.typekit.net/clm7bmx.css'
-      rel='preload'
-      as='style'
-      onload={"this.rel='stylesheet'"}
-    />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'
-      rel='preload'
-      as='style'
-      onload={"this.rel='stylesheet'"}
-    />
-  </head>
-  <body class='h-full'>
-    <TheHeader>
-      <section
-        class='flex flex-col items-center justify-center gap-y-6 pt-12 pb-60 px-6'
+<BaseLayout title='Belly Pão'>
+  <section
+    slot='header'
+    class='flex flex-col items-center justify-center gap-y-6 pt-12 pb-60 px-6'
+  >
+    <h1
+      class='font-fields font-extrabold text-[2.5rem] leading-[3rem] text-center text-[#FFECCC]'
+    >
+      O aroma do pão quente é um convite para começar o dia com sabor!
+    </h1>
+    <BaseButton
+      variant='primary'
+      size='sm'
+      icon='whatsapp'
+      href='https://wa.me/5511945488607'
+      >Sinta este aroma, fale conosco!</BaseButton
+    >
+  </section>
+  <section class='bg-[#FFECCC] py-8 relative' slot='footer'>
+    <div
+      class='absolute top-0 left-0 right-0 bottom-0 z-[1] bg-[length:311px_65px] opacity-40'
+      style='background-image: url(/images/belly-pattern.png);'
+    >
+    </div>
+    <div
+      class='container relative flex flex-col gap-2 items-center justify-center z-[2]'
+    >
+      <h2
+        class='text-2xl text-brown-700 text-center font-e xtrabold font-fields z-10'
       >
-        <h1
-          class='font-fields font-extrabold text-[2.5rem] leading-[3rem] text-center text-[#FFECCC]'
-        >
-          O aroma do pão quente é um convite para começar o dia com sabor!
-        </h1>
-        <BaseButton
-          variant='primary'
-          size='sm'
-          icon='whatsapp'
-          href='https://wa.me/5511945488607'
-          >Sinta este aroma, fale conosco!</BaseButton
-        >
-      </section>
-    </TheHeader>
-    <TheFooter />
-  </body>
-</html>
+        Demonstre gratidão aos seus colaboradores com alimentos de alta
+        qualidade!
+      </h2>
+      <BaseButton
+        variant='primary'
+        icon='whatsapp'
+        href='https://wa.me/5511945488607'>Fale conosco via WhatsApp</BaseButton
+      >
+    </div>
+  </section>
+</BaseLayout>

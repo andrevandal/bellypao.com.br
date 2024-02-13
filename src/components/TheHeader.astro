@@ -4,7 +4,7 @@ import BaseButton from './BaseButton.astro'
 ---
 
 <header id='topo' class='block'>
-  <div class='fixed w-full top-0 bg-brown-700/90 backdrop-blur'>
+  <div class='fixed w-full top-0'>
     <nav class='grid container pt-4 grid-cols-[1fr_40px] flex-wrap gap-x-2'>
       <a href='/#topo' class='block'>
         <img
@@ -32,7 +32,8 @@ import BaseButton from './BaseButton.astro'
             icon='whatsapp'
             size='sm'
             block
-            centered>Fale conosco</BaseButton>
+            centered>Fale conosco</BaseButton
+          >
         </li>
       </ul>
     </nav>
@@ -90,7 +91,15 @@ import BaseButton from './BaseButton.astro'
   }
 
   .nav-link {
-    @apply inline-flex w-full items-center h-12 text-[#FFECCC] font-semibold rounded-lg hover:bg-[#FFECCC]/10 transition-colors ease-out;
+    @apply inline-flex w-full items-center px-2 h-12 text-[#FFECCC] font-semibold rounded-lg hover:bg-[#FFECCC]/10 transition-colors ease-out;
+  }
+
+  #topo .fixed {
+    @apply bg-brown-700/90 backdrop-blur;
+  }
+
+  #topo .fixed:has(#menu-opened:checked) {
+    @apply rounded-b-lg;
   }
 
   /* @media lg {

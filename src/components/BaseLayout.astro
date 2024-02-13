@@ -1,0 +1,42 @@
+---
+import TheFooter from '../components/TheFooter.astro'
+import TheHeader from '../components/TheHeader.astro'
+
+type Props = {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<html class='h-full' lang='pt-br'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <title>{title}</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://use.typekit.net/clm7bmx.css'
+      rel='preload'
+      as='style'
+      onload={"this.rel='stylesheet'"}
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'
+      rel='preload'
+      as='style'
+      onload={"this.rel='stylesheet'"}
+    />
+  </head>
+  <body class='h-full'>
+    <TheHeader>
+      <slot name='header' />
+    </TheHeader>
+    <slot />
+    <TheFooter>
+      <slot name='footer' />
+    </TheFooter>
+  </body>
+</html>

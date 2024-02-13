@@ -4,21 +4,7 @@ import Icon from '../components/Icon.astro'
 ---
 
 <footer>
-  <section class='bg-[#FFECCC] py-8'>
-    <div class='container flex flex-col gap-2 items-center justify-center'>
-      <h2
-        class='text-2xl text-brown-700 text-center font-extrabold font-fields'
-      >
-        Demonstre gratidão aos seus colaboradores com alimentos de alta
-        qualidade!
-      </h2>
-      <BaseButton
-        variant='primary'
-        icon='whatsapp'
-        href='https://wa.me/5511945488607'>Fale conosco via WhatsApp</BaseButton
-      >
-    </div>
-  </section>
+  <slot />
   <section class='bg-brown-700 py-8 text-[#FFECCC]'>
     <h2 class='sr-only'>Rodapé</h2>
     <div class='container flex flex-col gap-y-6'>
