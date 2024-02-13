@@ -9,10 +9,19 @@ interface Props {
   variant: string
   icon?: AvailableIcons
   reverse?: boolean
+  block?: boolean
+  centered?: boolean
   size?: Sizes
 }
 
-const { variant, icon, reverse, size = 'base' } = Astro.props
+const {
+  variant,
+  icon,
+  reverse,
+  size = 'base',
+  block = false,
+  centered = false,
+} = Astro.props
 ---
 
 <a
@@ -22,6 +31,8 @@ const { variant, icon, reverse, size = 'base' } = Astro.props
     `btn-${variant}`,
     {
       'btn-reverse': reverse,
+      'btn-block': block,
+      'btn-center': centered,
       'btn-sm': size === 'sm',
       'btn-base': size === 'base',
     },
@@ -33,7 +44,7 @@ const { variant, icon, reverse, size = 'base' } = Astro.props
 
 <style>
   .btn {
-    @apply w-fit flex flex-row py-4 px-6 gap-x-2 rounded-lg;
+    @apply w-fit flex flex-row py-4 px-6 gap-x-2 rounded-lg text-base transition-all ease-out duration-200;
   }
   .btn-base {
     @apply py-4 px-6;
@@ -42,7 +53,16 @@ const { variant, icon, reverse, size = 'base' } = Astro.props
     @apply py-3 px-3;
   }
   .btn-primary {
-    @apply bg-[#FFAA33] text-[#503C2D];
+    @apply bg-[#FFAA33] text-[#503C2D] ring-4 ring-transparent hover:ring-[#FFAA33]/50;
+  }
+  .btn-primary-outline {
+    @apply border border-[#FFAA33] text-[#FFAA33] hover:bg-[#FFAA33] hover:text-brown-700;
+  }
+  .btn-center {
+    @apply justify-center;
+  }
+  .btn-block {
+    @apply w-full;
   }
   .btn-reverse {
     @apply flex-row-reverse;

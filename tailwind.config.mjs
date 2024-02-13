@@ -9,6 +9,7 @@ export default {
       sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
       fields: ['fields', ...defaultTheme.fontFamily.sans],
     },
+
     container: {
       center: true,
       screens: {
@@ -22,6 +23,9 @@ export default {
       },
     },
     extend: {
+      transitionProperty: {
+        'max-height': 'max-height',
+      },
       colors: {
         brown: {
           700: '#503C2D',

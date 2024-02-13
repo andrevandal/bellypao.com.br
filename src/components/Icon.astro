@@ -9,9 +9,12 @@ interface Props {
 }
 
 const { name, width, height, class: className } = Astro.props
+
+const style = `min-width: ${width ?? '24'}; min-height: ${height ?? '24'};`
 ---
 
 <svg
+  style={style}
   class:list={['icon', className]}
   width={width ?? '24'}
   height={height ?? '24'}

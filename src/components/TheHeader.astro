@@ -1,8 +1,122 @@
-<header>
-  <nav></nav>
-  <div class='bg-brown-700'>
+---
+import Icon from '../components/Icon.astro'
+import BaseButton from './BaseButton.astro'
+---
+
+<header id='topo' class='block'>
+  <div class='fixed w-full top-0 bg-brown-700/90 backdrop-blur'>
+    <nav class='grid container pt-4 grid-cols-[1fr_40px] flex-wrap gap-x-2'>
+      <a href='/#topo' class='block'>
+        <img
+          src='/images/logo-bellypao.h40.png'
+          alt='Logo Belly Pão'
+          width='160'
+          height='40'
+          loading='eager'
+          decoding='async'
+        />
+      </a>
+      <input class='hidden' type='checkbox' id='menu-opened' />
+      <label class='menu-btn' for='menu-opened'>
+        <span class='icon'></span>
+      </label>
+      <ul class='menu will-change-auto col-span-2 pt-4 box-border'>
+        <li><a class='nav-link' href='/#diferencial'>Diferencial</a></li>
+        <li><a class='nav-link' href='/#servicos'>Serviços</a></li>
+        <li><a class='nav-link' href='/#produtos'>Produtos</a></li>
+        <li><a class='nav-link' href='/#quem-somos'>Quem somos</a></li>
+        <li class='mt-2'>
+          <BaseButton
+            href='https://wa.me/5511945488607'
+            variant='primary-outline'
+            icon='whatsapp'
+            size='sm'
+            block
+            centered>Fale conosco</BaseButton>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class='bg-brown-700 pt-14'>
     <div class='container'>
       <slot />
     </div>
   </div>
 </header>
+
+<style>
+  .menu-btn {
+    @apply cursor-pointer inline-flex p-2 select-none h-10 w-10 border border-brown-800 rounded-lg items-center justify-center justify-self-end;
+  }
+
+  .icon {
+    @apply bg-[#FFAA33] block h-[2px] relative transition-colors ease-out w-4;
+  }
+
+  .icon:before,
+  .icon:after {
+    @apply bg-[#FFAA33] block h-full w-full absolute transition-all ease-out content-[''];
+  }
+
+  .icon:before {
+    @apply top-[5px];
+  }
+
+  .icon:after {
+    @apply top-[-5px];
+  }
+
+  ul {
+    @apply max-h-0 transition-max-height duration-200 ease-out clear-both overflow-hidden;
+  }
+
+  #menu-opened:checked ~ .menu {
+    @apply pb-4;
+    max-height: 282px;
+  }
+
+  #menu-opened:checked ~ .menu-btn .icon {
+    background: transparent;
+  }
+
+  #menu-opened:checked ~ .menu-btn .icon:before {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  #menu-opened:checked ~ .menu-btn .icon:after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav-link {
+    @apply inline-flex w-full items-center h-12 text-[#FFECCC] font-semibold rounded-lg hover:bg-[#FFECCC]/10 transition-colors ease-out;
+  }
+
+  /* @media lg {
+    .menu-btn {
+      display: none;
+    }
+    ul {
+      @apply flex flex-row;
+    }
+  } */
+  /* 48em = 768px */
+
+  /* @media (min-width: 48em) {
+    /* li {
+    float: left;
+  }
+  li a {
+    padding: 20px 30px;
+  }
+  ul {
+    clear: none;
+    float: right;
+    max-height: none;
+  } *
+    .menu-icon {
+      display: none;
+    }
+  } */
+</style>
