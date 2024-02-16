@@ -1,8 +1,9 @@
 ---
+import { getImageUrl } from '../utils'
 import Icon from '../components/Icon.astro'
 ---
 
-<footer>
+<footer class='bg-brown-700'>
   <slot />
   <section class='bg-brown-700 py-8 text-[#FFECCC]'>
     <h2 class='sr-only'>Rodapé</h2>
@@ -73,9 +74,14 @@ import Icon from '../components/Icon.astro'
               height='24 '
               name='map-pin'
             />
-            <p class='text-[#FFECCC] text-base leading-5 w-[25ch]'>
+            <a
+              href='https://maps.app.goo.gl/SfVU17vj5jhvVb3GA'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='text-[#FFECCC] text-base leading-5 w-[25ch]'
+            >
               Rua Porteiras, 254 - Cid. Jardim Cumbica - Guarulhos (SP)
-            </p>
+            </a>
           </li>
         </ul>
         <ul
@@ -120,14 +126,27 @@ import Icon from '../components/Icon.astro'
         class='flex flex-col gap-4 items-center lg:items-end lg:justify-end text-center lg:text-left'
       >
         <a href='/' class='w-fit'>
-          <img
-            src='/images/logo-bellypao.h48.png'
-            width='191'
-            height='48'
-            alt='Logo Belly Pão'
-            loading='lazy'
-            decoding='async'
-          />
+          <picture>
+            <source
+              srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_48')} 1x, 
+              ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_72')} 1.5x,
+              ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_96')} 2x,
+              ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp')} 3x`}
+              type='image/webp'
+            />
+            <img
+              src={getImageUrl('images/logo-bellypao.h144.png')}
+              srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'h_48')} 1x, 
+              ${getImageUrl('images/logo-bellypao.h144.png', 'h_72')} 1.5x,
+              ${getImageUrl('images/logo-bellypao.h144.png', 'h_96')} 2x,
+              ${getImageUrl('images/logo-bellypao.h144.png')} 3x`}
+              alt='Logo Belly Pão'
+              width='191'
+              height='48'
+              loading='lazy'
+              decoding='async'
+            />
+          </picture>
         </a>
         <p class='text-base font-medium leading-5'>
           2023 © Belly Pão. <br class='lg:hidden' />Todos os direitos
@@ -143,14 +162,27 @@ import Icon from '../components/Icon.astro'
       >
         <span class='text-sm font-medium'>Desenvolvido por</span>
         <a href='https://pedrohenri.com.br' target='_blank'>
-          <img
-            src='/images/logo-pedro-henri.png'
-            alt='Pedro Henrique'
-            width='157'
-            height='20'
-            loading='lazy'
-            decoding='async'
-          />
+          <picture>
+            <source
+              srcset={`${getImageUrl('images/logo-pedrohenri.h60.png', 'f_webp,h_20')} 1x,
+              ${getImageUrl('images/logo-pedrohenri.h60.png', 'f_webp,h_30')} 1.5x,
+              ${getImageUrl('images/logo-pedrohenri.h60.png', 'f_webp,h_40')} 2x,
+              ${getImageUrl('images/logo-pedrohenri.h60.png', 'f_webp')} 3x`}
+              type='image/webp'
+            />
+            <img
+              src={getImageUrl('images/logo-pedrohenri.h60.png')}
+              srcset={`${getImageUrl('images/logo-pedrohenri.h60.png', 'h_20')} 1x, 
+              ${getImageUrl('images/logo-pedrohenri.h60.png', 'h_30')} 1.5x,
+              ${getImageUrl('images/logo-pedrohenri.h60.png', 'h_40')} 2x,
+              ${getImageUrl('images/logo-pedrohenri.h60.png')} 3x`}
+              alt='Pedro Henrique'
+              width='157'
+              height='20'
+              loading='lazy'
+              decoding='async'
+            />
+          </picture>
         </a>
       </div>
     </div>

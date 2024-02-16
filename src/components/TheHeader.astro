@@ -1,4 +1,5 @@
 ---
+import { getImageUrl } from '../utils'
 import BaseButton from './BaseButton.astro'
 ---
 
@@ -8,14 +9,27 @@ import BaseButton from './BaseButton.astro'
       class='grid container pt-4 grid-cols-[1fr_40px] flex-wrap gap-x-2 lg:flex lg:flex-row lg:justify-between lg:pb-4'
     >
       <a href='/#topo' class='block'>
-        <img
-          src='/images/logo-bellypao.h40.png'
-          alt='Logo Belly Pão'
-          width='160'
-          height='40'
-          loading='eager'
-          decoding='async'
-        />
+        <picture>
+          <source
+            srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_40')} 1x, 
+            ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_60')} 1.5x,
+            ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_80')} 2x,
+            ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_120')} 3x`}
+            type='image/webp'
+          />
+          <img
+            src={getImageUrl('images/logo-bellypao.h144.png', 'h_40')}
+            srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'h_40')} 1x, 
+            ${getImageUrl('images/logo-bellypao.h144.png', 'h_60')} 1.5x,
+            ${getImageUrl('images/logo-bellypao.h144.png', 'h_80')} 2x,
+            ${getImageUrl('images/logo-bellypao.h144.png', 'h_120')} 3x`}
+            alt='Logo Belly Pão'
+            width='160'
+            height='40'
+            loading='lazy'
+            decoding='async'
+          />
+        </picture>
       </a>
       <input class='hidden' type='checkbox' id='menu-opened' />
       <label id='menu-button' for='menu-opened'>
