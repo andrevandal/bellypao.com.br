@@ -2,6 +2,42 @@
 import BaseLayout from '../components/BaseLayout.astro'
 import BaseButton from '../components/BaseButton.astro'
 import Icon from '../components/Icon.astro'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Belly Pão',
+  url: 'https://bellypao.com.br',
+  logo: 'https://bellypao.com.br/logo.png',
+  image: 'https://bellypao.com.br/banner.jpg',
+  description: 'Descrição curta e atraente da padaria',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rua Porteiras, 254, Cid. Jardim Cumbica',
+    addressLocality: 'Guarulhos',
+    addressRegion: 'São Paulo',
+    postalCode: '07180-090',
+    addressCountry: 'BR',
+  },
+  telephone: '+55 (11) 94548-8607',
+  priceRange: '$$',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '06:00',
+      closes: '18:30',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday', 'Sunday'],
+      opens: '06:00',
+      closes: '11:30',
+    },
+  ],
+  hasMap: 'https://maps.app.goo.gl/SfVU17vj5jhvVb3GA',
+  sameAs: ['https://www.instagram.com/bellypao.ind/'],
+}
 ---
 
 <BaseLayout title='Belly Pão'>
@@ -213,7 +249,7 @@ import Icon from '../components/Icon.astro'
     </div>
   </section>
 </BaseLayout>
-
+<script type='application/ld+json' set:html={JSON.stringify(schema)} />
 <style>
   .bg-pattern-gradient-with-overlay {
     @apply bg-[length:93.3px_19.5px] mt-[2px] lg:mt-1 lg:bg-[length:155.1px_32.5px] relative;
