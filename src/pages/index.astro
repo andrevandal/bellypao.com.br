@@ -7,10 +7,10 @@ import Icon from '../components/Icon.astro'
 <BaseLayout title='Belly Pão'>
   <section
     slot='header'
-    class='flex flex-col items-center justify-center gap-y-6 pt-12 pb-60 px-6'
+    class='flex flex-col items-center justify-center gap-y-6 pt-12 sm:pt-6 pb-60 lg:py-[6.875rem] lg:gap-y-4 xl:py-[7.5rem]'
   >
     <h1
-      class='font-fields font-extrabold text-[2.5rem] leading-[3rem] text-center text-[#FFECCC]'
+      class='font-fields font-extrabold px-6 text-[2.5rem] leading-[3rem] text-center text-[#FFECCC] lg:text-[4rem] lg:leading-[4.5rem]'
     >
       O aroma do pão quente é um convite para começar o dia com sabor!
     </h1>
@@ -23,10 +23,12 @@ import Icon from '../components/Icon.astro'
     >
   </section>
   <section id='diferencial' class='bg-white relative'>
-    <div class='absolute top-0 left-0 right-0 h-14 z-[1] bg-pattern-gradient'>
+    <div
+      class='absolute top-0 left-0 right-0 h-14 lg:h-[4.5rem] z-[1] bg-pattern-gradient-with-overlay'
+    >
     </div>
     <div class='container relative z-[2] text-brown-700 text-center py-16'>
-      <div class='flex flex-col gap-y-2'>
+      <div class='flex flex-col gap-y-2 items-center'>
         <h2 class='font-fields font-extrabold text-[2rem] leading-[2.375rem]'>
           Produtos frescos e ingredientes selecionados
         </h2>
@@ -46,7 +48,7 @@ import Icon from '../components/Icon.astro'
           class:list={['mt-4']}>Você merece o melhor, fale conosco!</BaseButton
         >
       </div>
-      <div class='mt-6'>
+      <div class='mt-6 flex items-center justify-center'>
         <img
           src='https://placehold.co/343x264/D0CAC6/503C2D'
           alt='placehold'
@@ -59,14 +61,17 @@ import Icon from '../components/Icon.astro'
       </div>
     </div>
   </section>
-  <section id='servicos' class='bg-brown-700'>
+  <section
+    id='servicos'
+    class='bg-brown-700 bg-[url(/images/belly-pattern.png)] bg-[length:155.1px_32.5px]'
+  >
     <h2 class='sr-only'>Serviços</h2>
-    <div class='container py-8 flex flex-col gap-y-4'>
+    <div class='container py-8 flex flex-col gap-4 sm:gap-6 lg:flex-row'>
       <article
-        class='flex-1 flex flex-col justify-center items-center px-4 py-6 text-[#FFECCC] text-center border border-brown-800 rounded-lg'
+        class='flex-1 bg-brown-700 flex flex-col justify-center items-center px-4 py-6 text-[#FFECCC] text-center border border-brown-800 rounded-lg xl:grid xl:grid-cols-[80px_1fr] xl:text-left xl:items-start xl:gap-x-8'
       >
         <div
-          class='w-20 h-20 p-4 flex rounded-lg border border-[#FFAA33] text-[#FFAA33] justify-center items-center mb-4'
+          class='w-20 h-20 p-4 flex rounded-lg border border-[#FFAA33] text-[#FFAA33] justify-center items-center mb-4 xl:row-span-2 xl:justify-start'
         >
           <Icon name='truck' width='48' height='48' />
         </div>
@@ -81,10 +86,10 @@ import Icon from '../components/Icon.astro'
         </p>
       </article>
       <article
-        class='flex-1 flex flex-col justify-center items-center px-4 py-6 text-[#FFECCC] text-center border border-brown-800 rounded-lg'
+        class='flex-1 bg-brown-700 flex flex-col justify-center items-center px-4 py-6 text-[#FFECCC] text-center border border-brown-800 rounded-lg xl:grid xl:grid-cols-[80px_1fr] xl:text-left xl:items-start xl:gap-x-8'
       >
         <div
-          class='w-20 h-20 p-4 flex rounded-lg border border-[#FFAA33] text-[#FFAA33] justify-center items-center mb-4'
+          class='w-20 h-20 p-4 flex rounded-lg border border-[#FFAA33] text-[#FFAA33] justify-center items-center mb-4 xl:row-span-2'
         >
           <Icon name='shop' width='48' height='48' />
         </div>
@@ -101,14 +106,16 @@ import Icon from '../components/Icon.astro'
   </section>
   <section id='produtos'>
     <div class='container text-brown-700 text-center pt-16 pb-8'>
-      <div class='flex flex-col gap-y-4'>
+      <div
+        class='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:gap-6 lg:grid-cols-3 items-center'
+      >
         <h2
-          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] mb-2'
+          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] mb-2 sm:col-span-2 sm:mb-4 lg:col-span-3'
         >
           Leve qualidade e sabor à sua mesa!
         </h2>
         {
-          Array(7)
+          Array(6)
             .fill(0)
             .map(() => (
               <img
@@ -116,7 +123,7 @@ import Icon from '../components/Icon.astro'
                 alt='placehold'
                 width='343'
                 height='343'
-                class='aspect-square rounded-lg'
+                class='aspect-square rounded-lg w-[343px] h-[343px] object-cover sm:w-[280px] sm:h-[280px] lg:w-[304px] lg:h-[304px] xl:w-[389px] xl:h-[389px]'
                 loading='lazy'
                 decoding='async'
               />
@@ -129,7 +136,8 @@ import Icon from '../components/Icon.astro'
           href='https://wa.me/5511945488607'
           block
           centered
-          class:list={['mt-4']}>Prove essas delícias, fale conosco!</BaseButton
+          class='mt-4 sm:col-span-2 sm:mt-4 lg:col-span-3 sm:!w-fit sm:place-self-center'
+          >Prove essas delícias, fale conosco!</BaseButton
         >
       </div>
     </div>
@@ -185,8 +193,7 @@ import Icon from '../components/Icon.astro'
   </section>
   <section class='bg-[#FFECCC] py-8 relative' slot='footer'>
     <div
-      class='absolute top-0 left-0 right-0 bottom-0 z-[1] bg-[length:311px_65px] opacity-40'
-      style='background-image: url(/images/belly-pattern.png);'
+      class='absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-20 bg-[url(/images/belly-pattern.png)] bg-[length:155.1px_32.5px]'
     >
     </div>
     <div
@@ -208,15 +215,23 @@ import Icon from '../components/Icon.astro'
 </BaseLayout>
 
 <style>
-  .bg-pattern-gradient {
-    @apply bg-[length:311px_65px];
-
-    background-image: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.6) 50%,
-        rgba(255, 255, 255, 1) 100%
-      ),
-      url(/images/belly-pattern.png);
+  .bg-pattern-gradient-with-overlay {
+    @apply bg-[length:93.3px_19.5px] mt-[2px] lg:mt-1 lg:bg-[length:155.1px_32.5px] relative;
+    background-image: url(/images/belly-pattern.png);
+  }
+  .bg-pattern-gradient-with-overlay:before {
+    z-index: 2;
+    position: absolute;
+    content: ' ';
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 1) 100%
+    );
   }
 </style>

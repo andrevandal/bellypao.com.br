@@ -1,11 +1,12 @@
 ---
-import Icon from '../components/Icon.astro'
 import BaseButton from './BaseButton.astro'
 ---
 
 <header id='topo' class='block'>
   <div class='fixed w-full top-0 z-20'>
-    <nav class='grid container pt-4 grid-cols-[1fr_40px] flex-wrap gap-x-2'>
+    <nav
+      class='grid container pt-4 grid-cols-[1fr_40px] flex-wrap gap-x-2 lg:flex lg:flex-row lg:justify-between lg:pb-4'
+    >
       <a href='/#topo' class='block'>
         <img
           src='/images/logo-bellypao.h40.png'
@@ -17,48 +18,28 @@ import BaseButton from './BaseButton.astro'
         />
       </a>
       <input class='hidden' type='checkbox' id='menu-opened' />
-      <label class='menu-btn' for='menu-opened'>
+      <label id='menu-button' for='menu-opened'>
         <span class='icon'></span>
       </label>
-      <ul class='menu will-change-auto col-span-2 pt-4 box-border'>
+      <ul id='menu'>
         <li>
-          <a
-            class='nav-link'
-            href='/#diferencial'
-            onclick="document.getElementById('menu-opened').checked = false"
-            >Diferencial</a
-          >
+          <a class='nav-link' href='/#diferencial'>Diferencial</a>
         </li>
         <li>
-          <a
-            class='nav-link'
-            href='/#servicos'
-            onclick="document.getElementById('menu-opened').checked = false"
-            >Serviços</a
-          >
+          <a class='nav-link' href='/#servicos'>Serviços</a>
         </li>
         <li>
-          <a
-            class='nav-link'
-            href='/#produtos'
-            onclick="document.getElementById('menu-opened').checked = false"
-            >Produtos</a
-          >
+          <a class='nav-link' href='/#produtos'>Produtos</a>
         </li>
         <li>
-          <a
-            class='nav-link'
-            href='/#quem-somos'
-            onclick="document.getElementById('menu-opened').checked = false"
-            >Quem somos</a
-          >
+          <a class='nav-link' href='/#quem-somos'>Quem somos</a>
         </li>
-        <li class='mt-2'>
+        <li>
           <BaseButton
             href='https://wa.me/5511945488607'
             variant='primary-outline'
             icon='whatsapp'
-            size='sm'
+            size='xs'
             block
             centered>Fale conosco</BaseButton
           >
@@ -66,16 +47,50 @@ import BaseButton from './BaseButton.astro'
       </ul>
     </nav>
   </div>
-  <div class='bg-brown-700 pt-14'>
-    <div class='container'>
+  <div class='bg-brown-700 flex flex-col'>
+    <div class='container mt-[4.5rem]'>
       <slot />
     </div>
   </div>
 </header>
+<script>
+  const closeMenu = () => {
+    const menuOpened = document.getElementById(
+      'menu-opened',
+    ) as HTMLInputElement
+    menuOpened.checked = false
+  }
+  const menuLinks = Array.from(
+    document.querySelectorAll('#menu a'),
+  ) as HTMLLinkElement[]
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener('click', () => closeMenu())
+  })
 
+  // click outside
+  document.addEventListener(
+    'click',
+    (event) => {
+      const target = event.target as HTMLElement
+      const menuOpened = document.getElementById(
+        'menu-opened',
+      ) as HTMLInputElement
+      if (
+        !target.closest('#menu') &&
+        !target.closest('#menu-button') &&
+        !target.closest('#menu-opened') &&
+        menuOpened.checked
+      ) {
+        closeMenu()
+      }
+    },
+    false,
+  )
+</script>
 <style>
-  .menu-btn {
+  #menu-button {
     @apply cursor-pointer inline-flex p-2 select-none h-10 w-10 border border-brown-800 rounded-lg items-center justify-center justify-self-end;
+    @apply lg:hidden;
   }
 
   .icon {
@@ -95,31 +110,40 @@ import BaseButton from './BaseButton.astro'
     @apply top-[-5px];
   }
 
-  ul {
-    @apply max-h-0 transition-max-height duration-200 ease-out clear-both overflow-hidden;
+  #menu {
+    @apply max-h-0 transition-max-height duration-200 ease-out clear-both overflow-hidden will-change-auto col-span-2 pt-4 box-border;
+    @apply lg:max-h-fit lg:flex lg:items-center lg:justify-center lg:pt-0 lg:gap-x-2;
   }
 
-  #menu-opened:checked ~ .menu {
+  #menu li:last-of-type {
+    @apply mt-2 lg:mt-0 lg:ml-4;
+  }
+  #menu li:last-of-type a {
+    @apply h-10;
+  }
+
+  #menu-opened:checked ~ #menu {
     @apply pb-4;
     max-height: 282px;
   }
 
-  #menu-opened:checked ~ .menu-btn .icon {
+  #menu-opened:checked ~ #menu-button .icon {
     background: transparent;
   }
 
-  #menu-opened:checked ~ .menu-btn .icon:before {
+  #menu-opened:checked ~ #menu-button .icon:before {
     top: 0;
     transform: rotate(-45deg);
   }
 
-  #menu-opened:checked ~ .menu-btn .icon:after {
+  #menu-opened:checked ~ #menu-button .icon:after {
     top: 0;
     transform: rotate(45deg);
   }
 
   .nav-link {
     @apply inline-flex w-full items-center px-2 h-12 text-[#FFECCC] font-semibold rounded-lg hover:bg-[#FFECCC]/10 transition-colors ease-out;
+    @apply lg:w-fit lg:px-4 lg:py-3 lg:h-10;
   }
 
   #topo .fixed {
@@ -130,14 +154,6 @@ import BaseButton from './BaseButton.astro'
     @apply rounded-b-lg;
   }
 
-  /* @media lg {
-    .menu-btn {
-      display: none;
-    }
-    ul {
-      @apply flex flex-row;
-    }
-  } */
   /* 48em = 768px */
 
   /* @media (min-width: 48em) {

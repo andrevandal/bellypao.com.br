@@ -9,13 +9,18 @@ export default {
       sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
       fields: ['fields', ...defaultTheme.fontFamily.sans],
     },
-
+    screens: {
+      sm: '640px',
+      lg: '1024px',
+      xl: '1280px',
+    },
     container: {
       center: true,
       screens: {
         DEFAULT: '375px',
-        // sm: '640px',
-        // lg: '1024px',
+        sm: '640px',
+        lg: '1024px',
+        xl: '1280px',
       },
       padding: {
         DEFAULT: '1rem',
