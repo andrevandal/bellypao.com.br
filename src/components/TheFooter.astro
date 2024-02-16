@@ -6,27 +6,31 @@ import Icon from '../components/Icon.astro'
   <slot />
   <section class='bg-brown-700 py-8 text-[#FFECCC]'>
     <h2 class='sr-only'>Rodapé</h2>
-    <div class='container flex flex-col gap-y-6'>
+    <div
+      class='container flex flex-col gap-y-6 lg:flex-row lg:justify-between text-center lg:text-left'
+    >
       <article>
-        <h3
-          class='mb-2 text-xl leading-6 tracking-tighter font-bold text-center'
-        >
+        <h3 class='mb-2 text-xl leading-6 tracking-tighter font-bold'>
           Fale conosco
         </h3>
         <ul>
-          <li class='flex flex-row gap-x-1 justify-center py-2'>
+          <li
+            class='flex flex-row gap-x-1 justify-center py-2 lg:justify-start'
+          >
             <Icon
               class:list={['h-6 w-6 text-[#FFAA33]']}
               width='24'
               height='24 '
               name='clock'
             />
-            <p class='text-[#FFECCC] text-base leading-5 w-fit text-center'>
+            <p class='text-[#FFECCC] text-base leading-5 w-fit'>
               Segunda a Sexta das 6h ás 18h30<br />
               Sábado e Domingo das 6h ás 11h30
             </p>
           </li>
-          <li class='flex flex-row gap-x-1 justify-center py-2'>
+          <li
+            class='flex flex-row gap-x-1 justify-center py-2 lg:justify-start'
+          >
             <Icon
               class:list={['h-6 w-6 text-[#FFAA33]']}
               width='24'
@@ -37,12 +41,14 @@ import Icon from '../components/Icon.astro'
               href='https://wa.me/5511945488607'
               target='_blank'
               rel='noopener noreferrer'
-              class='text-[#FFECCC] text-base leading-5 w-fit text-center'
+              class='text-[#FFECCC] text-base leading-5 w-fit'
             >
               (11) 94548-8607
             </a>
           </li>
-          <li class='flex flex-row gap-x-1 justify-center py-2'>
+          <li
+            class='flex flex-row gap-x-1 justify-center py-2 lg:justify-start'
+          >
             <Icon
               class:list={['h-6 w-6 text-[#FFAA33]']}
               width='24'
@@ -53,24 +59,28 @@ import Icon from '../components/Icon.astro'
               href='tel:01129374674'
               target='_blank'
               rel='noopener noreferrer'
-              class='text-[#FFECCC] text-base leading-5 w-fit text-center'
+              class='text-[#FFECCC] text-base leading-5 w-fit'
             >
               (11) 2937-4674
             </a>
           </li>
-          <li class='flex flex-row gap-x-1 justify-center py-2'>
+          <li
+            class='flex flex-row gap-x-1 justify-center py-2 lg:justify-start'
+          >
             <Icon
               class:list={['h-6 w-6 text-[#FFAA33]']}
               width='24'
               height='24 '
               name='map-pin'
             />
-            <p class='text-[#FFECCC] text-base leading-5 w-[25ch] text-center'>
+            <p class='text-[#FFECCC] text-base leading-5 w-[25ch]'>
               Rua Porteiras, 254 - Cid. Jardim Cumbica - Guarulhos (SP)
             </p>
           </li>
         </ul>
-        <ul class='flex justify-center items-center gap-x-2 mt-3'>
+        <ul
+          class='flex justify-center items-center gap-x-2 mt-3 lg:justify-start'
+        >
           <li>
             <a
               href='https://www.instagram.com/bellypao.ind/'
@@ -106,8 +116,10 @@ import Icon from '../components/Icon.astro'
           </li> -->
         </ul>
       </article>
-      <article class='flex flex-col gap-y-4 items-center track'>
-        <a href='#' class='w-fit'>
+      <article
+        class='flex flex-col gap-4 items-center lg:items-end lg:justify-end text-center lg:text-left'
+      >
+        <a href='/' class='w-fit'>
           <img
             src='/images/logo-bellypao.h48.png'
             width='191'
@@ -117,10 +129,9 @@ import Icon from '../components/Icon.astro'
             decoding='async'
           />
         </a>
-        <p
-          class='text-base text-center font-medium leading-5 max-w- whitespace-break-spaces'
-        >
-          2023 © Belly Pão.<br />Todos os direitos reservados.
+        <p class='text-base font-medium leading-5'>
+          2023 © Belly Pão. <br class='lg:hidden' />Todos os direitos
+          reservados.
         </p>
       </article>
     </div>
@@ -128,7 +139,7 @@ import Icon from '../components/Icon.astro'
   <section class='bg-brown-700 text-[#FFECCC]'>
     <div class='container flex items-center justify-center'>
       <div
-        class='py-[0.625rem] inline-flex items-center gap-x-2 justify-center border-t-brown-800 border-t border-solid'
+        class='py-[0.625rem] inline-flex items-center gap-x-2 justify-center border-t-brown-800 border-t border-solid w-full'
       >
         <span class='text-sm font-medium'>Desenvolvido por</span>
         <a href='https://pedrohenri.com.br' target='_blank'>

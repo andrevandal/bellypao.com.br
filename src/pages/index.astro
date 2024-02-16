@@ -63,15 +63,21 @@ const schema = {
       class='absolute top-0 left-0 right-0 h-14 lg:h-[4.5rem] z-[1] bg-pattern-gradient-with-overlay'
     >
     </div>
-    <div class='container relative z-[2] text-brown-700 text-center py-16'>
-      <div class='flex flex-col gap-y-2 items-center'>
-        <h2 class='font-fields font-extrabold text-[2rem] leading-[2.375rem]'>
+    <div
+      class='container mt-1 -translate-y-14 lg:-translate-y-20 z-[2] text-brown-700 text-center pt-16 sm:pt-20 lg:grid lg:grid-cols-2 lg:text-left lg:gap-x-6 lg:items-center'
+    >
+      <div class='flex flex-col gap-y-2 items-center lg:items-start'>
+        <h2
+          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] lg:text-5xl lg:leading-[3.5rem]'
+        >
           Produtos frescos e ingredientes selecionados
         </h2>
-        <h3 class='text-[#FFAA33] font-medium text-base leading-5 uppercase'>
+        <h3
+          class='text-[#FFAA33] font-medium text-base leading-5 uppercase lg:text-2xl lg:leading-[1.875rem]'
+        >
           Qualidade que Você Pode Saborear!
         </h3>
-        <p class='font-medium'>
+        <p class='font-medium text-balance'>
           Nosso compromisso é oferecer produtos feitos com ingredientes frescos
           e selecionados. Cada mordida é uma experiência única. Conheça a
           diferença que a qualidade faz em nossos pães, bolos e salgados.
@@ -84,13 +90,13 @@ const schema = {
           class:list={['mt-4']}>Você merece o melhor, fale conosco!</BaseButton
         >
       </div>
-      <div class='mt-6 flex items-center justify-center'>
+      <div class='mt-6 flex items-center justify-center lg:mt-0 lg:justify-end'>
         <img
           src='https://placehold.co/343x264/D0CAC6/503C2D'
           alt='placehold'
           width='343'
           height='264'
-          class='aspect-[343/264] rounded-lg'
+          class='aspect-[343/264] rounded-lg w-[343px] h-[264px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
           loading='lazy'
           decoding='async'
         />
@@ -114,7 +120,7 @@ const schema = {
         <h3 class='font-fields font-extrabold text-[2rem] leading-8 mb-2'>
           Para empresas
         </h3>
-        <p class='text-base leading-5'>
+        <p class='text-base leading-5 text-balance'>
           Proporcionamos experiências deliciosas com nosso serviço de <strong
             >distribuição de café da manhã e tarde para empresas</strong
           >. Surpreenda seus colaboradores com produtos frescos e de alta
@@ -132,7 +138,7 @@ const schema = {
         <h3 class='font-fields font-extrabold text-[2rem] leading-8 mb-2'>
           Atendimento local
         </h3>
-        <p class='text-base leading-5'>
+        <p class='text-base leading-5 text-balance'>
           Estamos aqui para atender você, morador da região. Nossa padaria é um
           ponto de encontro para aqueles que valorizam produtos feitos com
           carinho. Visite-nos e sinta-se em casa.
@@ -141,12 +147,14 @@ const schema = {
     </div>
   </section>
   <section id='produtos'>
-    <div class='container text-brown-700 text-center pt-16 pb-8'>
+    <div
+      class='container text-brown-700 text-center pt-16 pb-8 sm:pt-20 sm:pb-10'
+    >
       <div
         class='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:gap-6 lg:grid-cols-3 items-center'
       >
         <h2
-          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] mb-2 sm:col-span-2 sm:mb-4 lg:col-span-3'
+          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] mb-2 sm:col-span-2 sm:mb-4 lg:col-span-3 lg:text-5xl lg:leading-[3.5rem]'
         >
           Leve qualidade e sabor à sua mesa!
         </h2>
@@ -179,47 +187,53 @@ const schema = {
     </div>
   </section>
   <section id='quem-somos' class='overflow-hidden'>
-    <div class='container text-brown-700 text-center pt-8 pb-14'>
+    <div
+      class='container text-brown-700 text-center pt-8 pb-14 sm:pb-20 sm:pt-10 lg:grid lg:grid-cols-2 lg:text-left lg:gap-x-6 lg:items-center'
+    >
       <div class='flex flex-col gap-y-2'>
-        <h2 class='font-fields font-extrabold text-[2rem] leading-[2.375rem]'>
+        <h2
+          class='font-fields font-extrabold text-[2rem] leading-[2.375rem] lg:text-5xl lg:leading-none'
+        >
           Quem somos
         </h2>
         <h3 class='text-[#FFAA33] font-medium text-base leading-5 uppercase'>
           Compromisso, Qualidade e Crescimento Coletivo.
         </h3>
-        <p class='font-medium'>
+        <p class='font-medium text-balance'>
           Com intenção de atender com excelência, a Belly Pão iniciou sua
           jornada no mercado alimentício, priorizando a satisfação dos clientes.
           Nos comprometemos a atender às necessidades com os melhores produtos,
           seguindo rigorosos padrões de higiene e normas da ANVISA.
         </p>
-        <p class='font-medium'>
+        <p class='font-medium text-balance'>
           Em busca do crescimento, confiamos no esforço, na vontade de trabalhar
           e no suporte oferecido a uma equipe capacitada. Acreditamos no
           potencial de cada funcionário, reconhecendo que o sucesso da empresa é
           construído coletivamente.
         </p>
       </div>
-      <div class='mt-6'>
-        <div class='relative'>
+      <div class='mt-6 flex items-center justify-center lg:mt-0 lg:justify-end'>
+        <div
+          class='relative block aspect-[343/264] w-[343px] h-[264px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
+        >
           <img
             src='https://placehold.co/343x264/D0CAC6/503C2D'
             alt='placehold'
             width='343'
             height='264'
-            class='aspect-[343/264] rounded-lg'
+            class='aspect-[343/264] rounded-lg w-[343px] h-[264px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
             loading='lazy'
             decoding='async'
           />
 
           <div
-            class='absolute top-[132.27px] left-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-brown-700 rounded-full text-[#FFAA33]'
+            class='absolute top-[49%] lg:top-[43%] left-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-brown-700 rounded-full text-[#FFAA33]'
           >
             <Icon name='wheat' width='24' height='24' />
           </div>
 
           <div
-            class='absolute top-[-23.73px] left-[319px] w-12 h-12 min-w-12 flex justify-center items-center bg-[#FFAA33] rounded-full text-brown-700'
+            class='absolute top-[-23.73px] right-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-[#FFAA33] rounded-full text-brown-700'
           >
             <Icon name='bread' width='24' height='24' />
           </div>
@@ -233,10 +247,10 @@ const schema = {
     >
     </div>
     <div
-      class='container relative flex flex-col gap-2 items-center justify-center z-[2]'
+      class='container relative flex flex-col gap-x-2 items-center justify-center z-[2] lg:flex-row lg:gap-y-6 xl:justify-start'
     >
       <h2
-        class='text-2xl text-brown-700 text-center font-e xtrabold font-fields z-10'
+        class='text-2xl text-brown-700 text-center font-fields font-extrabold z-10 lg:text-[1.75rem] lg:leading-[1.29] xl:text-[2.5rem] lg:text-left lg:text-balance'
       >
         Demonstre gratidão aos seus colaboradores com alimentos de alta
         qualidade!
@@ -244,6 +258,7 @@ const schema = {
       <BaseButton
         variant='primary'
         icon='whatsapp'
+        class='whitespace-nowrap'
         href='https://wa.me/5511945488607'>Fale conosco via WhatsApp</BaseButton
       >
     </div>
