@@ -7,7 +7,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['Quicksand', ...defaultTheme.fontFamily.sans],
-      fields: ['fields', ...defaultTheme.fontFamily.sans],
+      fields: ['Fields', ...defaultTheme.fontFamily.sans],
     },
     screens: {
       sm: '640px',
