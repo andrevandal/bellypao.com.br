@@ -17,16 +17,8 @@ const { title, schema } = Astro.props
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <title>{title}</title>
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      href='https://use.typekit.net/clm7bmx.css'
-      rel='preload'
-      as='style'
-      onload={"this.rel='stylesheet'"}
-    />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'
+      href='/css/fonts.css'
       rel='preload'
       as='style'
       onload={"this.rel='stylesheet'"}
@@ -36,7 +28,12 @@ const { title, schema } = Astro.props
       rel='preload'
       as='script'
     />
-    <script define:vars={{ googleAnalyticsId, isDev }}>
+    <script is:inline>
+      partytown = {
+        forward: ['dataLayer.push'],
+      }
+    </script>
+    <script type='text/partytown' define:vars={{ googleAnalyticsId, isDev }}>
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)
@@ -63,6 +60,7 @@ const { title, schema } = Astro.props
     <script
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-    ></script>
+      type='text/partytown'
+      is:inline></script>
   </body>
 </html>
