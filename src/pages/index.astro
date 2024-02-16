@@ -40,7 +40,7 @@ const schema = {
 }
 ---
 
-<BaseLayout title='Belly Pão'>
+<BaseLayout title='Belly Pão' schema={schema}>
   <section
     slot='header'
     class='flex flex-col items-center justify-center gap-y-6 pt-12 sm:pt-6 pb-60 lg:py-[6.875rem] lg:gap-y-4 xl:py-[7.5rem]'
@@ -264,7 +264,6 @@ const schema = {
     </div>
   </section>
 </BaseLayout>
-<script type='application/ld+json' set:html={JSON.stringify(schema)} />
 <style>
   .bg-pattern-gradient-with-overlay {
     @apply bg-[length:93.3px_19.5px] mt-[2px] lg:mt-1 lg:bg-[length:155.1px_32.5px] relative;

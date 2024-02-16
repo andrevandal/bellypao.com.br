@@ -4,10 +4,11 @@ import TheHeader from '../components/TheHeader.astro'
 
 type Props = {
   title: string
+  schema?: Record<string, unknown>
 }
 const { isDev, PUBLIC_GOOGLE_ANALYTICS_ID: googleAnalyticsId } = import.meta.env
 
-const { title } = Astro.props
+const { title, schema } = Astro.props
 ---
 
 <html class='h-full scroll-smooth scroll-p-[4.5rem]' lang='pt-br'>
@@ -30,10 +31,11 @@ const { title } = Astro.props
       as='style'
       onload={"this.rel='stylesheet'"}
     />
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-    ></script>
+    <link
+      href={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+      rel='preload'
+      as='script'
+    />
     <script define:vars={{ googleAnalyticsId, isDev }}>
       window.dataLayer = window.dataLayer || []
       function gtag() {
@@ -53,5 +55,14 @@ const { title } = Astro.props
     <TheFooter>
       <slot name='footer' />
     </TheFooter>
+    <script
+      type='application/ld+json'
+      is:inline
+      set:html={JSON.stringify(schema)}
+    />
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+    ></script>
   </body>
 </html>
