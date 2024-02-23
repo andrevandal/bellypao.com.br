@@ -1,0 +1,16 @@
+---
+interface Props {
+  caption?: string
+}
+
+const { caption } = Astro.props
+---
+
+<figure class='relative'>
+  <slot />
+  <figcaption
+    class='text-base mt-auto leading-5 text-left px-6 py-3 text-white font-bold absolute -translate-y-full right-0 left-0'
+  >
+    {caption}
+  </figcaption>
+</figure>

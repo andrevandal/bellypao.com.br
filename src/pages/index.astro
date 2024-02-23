@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../components/BaseLayout.astro'
 import BaseButton from '../components/BaseButton.astro'
+import Figure from '../components/Figure.astro'
 import Icon from '../components/Icon.astro'
 
 const schema = {
@@ -38,6 +39,54 @@ const schema = {
   hasMap: 'https://maps.app.goo.gl/SfVU17vj5jhvVb3GA',
   sameAs: ['https://www.instagram.com/bellypao.ind/'],
 }
+
+const products = [
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Pão Frances',
+    imageCaption: 'Pão Frances',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Pão de Leite',
+    imageCaption: 'Pão de Leite',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Pão de Coco',
+    imageCaption: 'Pão de Coco',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Pão de Milho',
+    imageCaption: 'Pão de Milho',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Pão de Açúcar',
+    imageCaption: 'Pão de Açúcar',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Mini Baguete',
+    imageCaption: 'Mini Baguete',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Baguete',
+    imageCaption: 'Baguete',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Bolo de Fubá',
+    imageCaption: 'Bolo de Fubá',
+  },
+  {
+    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageAlt: 'Bolo de Chocolate',
+    imageCaption: 'Bolo de Chocolate',
+  },
+]
 ---
 
 <BaseLayout title='Belly Pão' schema={schema}>
@@ -159,19 +208,19 @@ const schema = {
           Leve qualidade e sabor à sua mesa!
         </h2>
         {
-          Array(6)
-            .fill(0)
-            .map(() => (
+          products.map(({ imageAlt, imageSrc, imageCaption }) => (
+            <Figure caption={imageCaption}>
               <img
-                src='https://placehold.co/343x343/D0CAC6/503C2D'
-                alt='placehold'
+                src={imageSrc}
+                alt={imageAlt}
                 width='343'
                 height='343'
                 class='aspect-square rounded-lg w-[343px] h-[343px] object-cover sm:w-[280px] sm:h-[280px] lg:w-[304px] lg:h-[304px] xl:w-[389px] xl:h-[389px]'
                 loading='lazy'
                 decoding='async'
               />
-            ))
+            </Figure>
+          ))
         }
         <BaseButton
           variant='primary'
@@ -247,7 +296,7 @@ const schema = {
     >
     </div>
     <div
-      class='container relative flex flex-col gap-x-2 items-center justify-center z-[2] lg:flex-row lg:gap-y-6 xl:justify-start'
+      class='container relative flex flex-col gap-2 items-center justify-center z-[2] lg:flex-row lg:gap-y-6 xl:justify-start'
     >
       <h2
         class='text-2xl text-brown-700 text-center font-fields font-extrabold z-10 lg:text-[1.75rem] lg:leading-[1.29] xl:text-[2.5rem] lg:text-left lg:text-balance'
