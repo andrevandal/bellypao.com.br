@@ -61,13 +61,64 @@ import BaseButton from './BaseButton.astro'
       </ul>
     </nav>
   </div>
-  <div class='bg-brown-700 flex flex-col'>
-    <div class='container mt-[4.5rem]'>
+  <div class='bg-brown-700 flex flex-col relative'>
+    <picture
+      class='absolute left-0 right-0 bottom-0 opacity-70 mix-blend-lighten'
+    >
+      <source
+        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_2500,h_1080,f_webp')} 1x, 
+        ${getImageUrl('images/primeira-dobra.png', 'w_3750,h_1620,f_webp')} 1.5x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_5000,h_2160,f_webp')} 2x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_7500,h_3240,f_webp')} 3x`}
+        type='image/webp'
+        media='(min-width: 1024px)'
+      />
+      <source
+        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_2500,h_1080')} 1x, 
+        ${getImageUrl('images/primeira-dobra.png', 'w_3750,h_1620')} 1.5x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_5000,h_2160')} 2x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_7500,h_3240')} 3x`}
+        type='image/png'
+        media='(min-width: 1024px)'
+      />
+      <source
+        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_1080,h_800')} 1x, 
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1620,h_1200')} 1.5x,
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_2160,h_1600')} 2x,
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_3240,h_2400')} 3x`}
+        type='image/png'
+      />
+      <source
+        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_1080,h_800,f_webp')} 1x, 
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1620,h_1200,f_webp')} 1.5x,
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_2160,h_1600,f_webp')} 2x,
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_3240,h_2400,f_webp')} 3x`}
+        type='image/webp'
+      />
+      <img
+        src={getImageUrl(
+          'images/primeira-dobra_mobile.png',
+          'w_1080,h_800,f_webp',
+        )}
+        alt=''
+        class='w-full h-auto aspect-[1080/800] mt-auto lg:aspect-[2500/1080] object-cover'
+        loading='lazy'
+        decoding='async'
+      />
+    </picture>
+    <div class='container mt-[4.5rem] relative z-[2]'>
       <slot />
     </div>
   </div>
 </header>
 <script>
+  const fixedNavbar = document.querySelector('#topo .fixed')
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) return fixedNavbar?.classList.add('actived')
+    return fixedNavbar?.classList.remove('actived')
+  })
+
   const closeMenu = () => {
     const menuOpened = document.getElementById(
       'menu-opened',
@@ -160,30 +211,11 @@ import BaseButton from './BaseButton.astro'
     @apply lg:w-fit lg:px-4 lg:py-3 lg:h-10;
   }
 
-  #topo .fixed {
+  #topo .fixed.actived {
     @apply bg-brown-700/90 backdrop-blur;
   }
 
   #topo .fixed:has(#menu-opened:checked) {
-    @apply rounded-b-lg;
+    @apply bg-brown-700/90 backdrop-blur rounded-b-lg;
   }
-
-  /* 48em = 768px */
-
-  /* @media (min-width: 48em) {
-    /* li {
-    float: left;
-  }
-  li a {
-    padding: 20px 30px;
-  }
-  ul {
-    clear: none;
-    float: right;
-    max-height: none;
-  } *
-    .menu-icon {
-      display: none;
-    }
-  } */
 </style>

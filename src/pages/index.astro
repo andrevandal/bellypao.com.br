@@ -3,14 +3,15 @@ import BaseLayout from '../components/BaseLayout.astro'
 import BaseButton from '../components/BaseButton.astro'
 import Figure from '../components/Figure.astro'
 import Icon from '../components/Icon.astro'
+import Picture from '../components/Picture.astro'
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Belly Pão',
   url: 'https://bellypao.com.br',
-  logo: 'https://bellypao.com.br/logo.png',
-  image: 'https://bellypao.com.br/banner.jpg',
+  logo: 'https://bellypao.com.br/images/logo.png',
+  image: 'https://bellypao.com.br/images/banner.jpg',
   description: 'Descrição curta e atraente da padaria',
   address: {
     '@type': 'PostalAddress',
@@ -42,54 +43,58 @@ const schema = {
 
 const products = [
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/pao-frances.png',
     imageAlt: 'Pão Frances',
     imageCaption: 'Pão Frances',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/pao-de-leite.png',
     imageAlt: 'Pão de Leite',
     imageCaption: 'Pão de Leite',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/pao-de-coco.png',
     imageAlt: 'Pão de Coco',
     imageCaption: 'Pão de Coco',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/pao-de-milho.png',
     imageAlt: 'Pão de Milho',
     imageCaption: 'Pão de Milho',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/pao-de-acucar.png',
     imageAlt: 'Pão de Açúcar',
     imageCaption: 'Pão de Açúcar',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/mini-baguete.png',
     imageAlt: 'Mini Baguete',
     imageCaption: 'Mini Baguete',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/baguete.png',
     imageAlt: 'Baguete',
     imageCaption: 'Baguete',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/bolo-de-fuba.png',
     imageAlt: 'Bolo de Fubá',
     imageCaption: 'Bolo de Fubá',
   },
   {
-    imageSrc: 'https://placehold.co/343x343/D0CAC6/503C2D',
+    imageSrc: 'images/bolo-de-chocolate.png',
     imageAlt: 'Bolo de Chocolate',
     imageCaption: 'Bolo de Chocolate',
   },
 ]
 ---
 
-<BaseLayout title='Belly Pão' schema={schema}>
+<BaseLayout
+  title='Belly Pão - Indústria e Comércio de Pães e Delícias'
+  description='Pães, bolos e salgados com sabor específico, e serviço de serviço para empresas em Guarulhos. O aroma do pão quente é um convite para iniciar o dia com sabor!'
+  schema={schema}
+>
   <section
     slot='header'
     class='flex flex-col items-center justify-center gap-y-6 pt-12 sm:pt-6 pb-60 lg:py-[6.875rem] lg:gap-y-4 xl:py-[7.5rem]'
@@ -140,21 +145,26 @@ const products = [
         >
       </div>
       <div class='mt-6 flex items-center justify-center lg:mt-0 lg:justify-end'>
-        <img
-          src='https://placehold.co/343x264/D0CAC6/503C2D'
-          alt='placehold'
-          width='343'
-          height='264'
-          class='aspect-[343/264] rounded-lg w-[343px] h-[264px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
-          loading='lazy'
-          decoding='async'
-        />
+        <div
+          class='relative block aspect-[343/265] w-[343px] h-[265px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
+        >
+          <Picture
+            imageSrc='images/sessao_ingredientes.png'
+            imageAlt='placehold'
+            variants={{
+              xs: { width: 343, height: 265 },
+              lg: { width: 468, height: 362 },
+              xl: { width: 517, height: 400 },
+            }}
+            webp
+          />
+        </div>
       </div>
     </div>
   </section>
   <section
     id='servicos'
-    class='bg-brown-700 bg-[url(/images/belly-pattern.png)] bg-[length:155.1px_32.5px]'
+    class='bg-brown-700 bg-pattern bg-[length:155.1px_32.5px]'
   >
     <h2 class='sr-only'>Serviços</h2>
     <div class='container py-8 flex flex-col gap-4 sm:gap-6 lg:flex-row'>
@@ -210,14 +220,16 @@ const products = [
         {
           products.map(({ imageAlt, imageSrc, imageCaption }) => (
             <Figure caption={imageCaption}>
-              <img
-                src={imageSrc}
-                alt={imageAlt}
-                width='343'
-                height='343'
-                class='aspect-square rounded-lg w-[343px] h-[343px] object-cover sm:w-[280px] sm:h-[280px] lg:w-[304px] lg:h-[304px] xl:w-[389px] xl:h-[389px]'
-                loading='lazy'
-                decoding='async'
+              <Picture
+                imageSrc={imageSrc}
+                imageAlt={imageAlt}
+                variants={{
+                  xs: { width: 343, height: 343 },
+                  sm: { width: 280, height: 280 },
+                  lg: { width: 304, height: 304 },
+                  xl: { width: 389, height: 389 },
+                }}
+                webp
               />
             </Figure>
           ))
@@ -263,74 +275,91 @@ const products = [
       </div>
       <div class='mt-6 flex items-center justify-center lg:mt-0 lg:justify-end'>
         <div
-          class='relative block aspect-[343/264] w-[343px] h-[264px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
+          class='relative block aspect-[343/265] w-[343px] h-[265px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
         >
-          <img
-            src='https://placehold.co/343x264/D0CAC6/503C2D'
-            alt='placehold'
-            width='343'
-            height='264'
-            class='aspect-[343/264] rounded-lg w-[343px] h-[264px] lg:w-[468px] lg:h-[362px] xl:w-[517px] xl:h-[400px]'
-            loading='lazy'
-            decoding='async'
-          />
-
-          <div
-            class='absolute top-[49%] lg:top-[43%] left-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-brown-700 rounded-full text-[#FFAA33]'
+          <Picture
+            imageSrc='images/sessao_quem-somos.png'
+            imageAlt='placehold'
+            variants={{
+              xs: { width: 343, height: 265 },
+              lg: { width: 468, height: 362 },
+              xl: { width: 517, height: 400 },
+            }}
+            webp
           >
-            <Icon name='wheat' width='24' height='24' />
-          </div>
+            <div
+              class='absolute top-[49%] lg:top-[43%] left-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-brown-700 rounded-full text-[#FFAA33]'
+            >
+              <Icon name='wheat' width='24' height='24' />
+            </div>
 
-          <div
-            class='absolute top-[-23.73px] right-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-[#FFAA33] rounded-full text-brown-700'
-          >
-            <Icon name='bread' width='24' height='24' />
-          </div>
+            <div
+              class='absolute top-[-23.73px] right-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-[#FFAA33] rounded-full text-brown-700'
+            >
+              <Icon name='bread' width='24' height='24' />
+            </div>
+          </Picture>
         </div>
       </div>
     </div>
-  </section>
-  <section class='bg-[#FFECCC] py-8 relative' slot='footer'>
-    <div
-      class='absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-20 bg-[url(/images/belly-pattern.png)] bg-[length:155.1px_32.5px]'
-    >
-    </div>
-    <div
-      class='container relative flex flex-col gap-2 items-center justify-center z-[2] lg:flex-row lg:gap-y-6 xl:justify-start'
-    >
-      <h2
-        class='text-2xl text-brown-700 text-center font-fields font-extrabold z-10 lg:text-[1.75rem] lg:leading-[1.29] xl:text-[2.5rem] lg:text-left lg:text-balance'
+    <section class='bg-[#FFECCC] py-8 relative' slot='footer'>
+      <div
+        class='absolute top-0 left-0 right-0 bottom-0 z-[1] opacity-20 bg-pattern bg-[length:155.1px_32.5px]'
       >
-        Demonstre gratidão aos seus colaboradores com alimentos de alta
-        qualidade!
-      </h2>
-      <BaseButton
-        variant='primary'
-        icon='whatsapp'
-        class='whitespace-nowrap'
-        href='https://wa.me/5511945488607'>Fale conosco via WhatsApp</BaseButton
+      </div>
+      <div
+        class='container relative flex flex-col gap-2 items-center justify-center z-[2] lg:flex-row lg:gap-y-6 xl:justify-start'
       >
-    </div>
+        <h2
+          class='text-2xl text-brown-700 text-center font-fields font-extrabold z-10 lg:text-[1.75rem] lg:leading-[1.29] xl:text-[2.5rem] lg:text-left lg:text-balance'
+        >
+          Demonstre gratidão aos seus colaboradores com alimentos de alta
+          qualidade!
+        </h2>
+        <BaseButton
+          variant='primary'
+          icon='whatsapp'
+          class='whitespace-nowrap'
+          href='https://wa.me/5511945488607'
+          >Fale conosco via WhatsApp</BaseButton
+        >
+      </div>
+    </section>
   </section>
+  <style>
+    .bg-pattern {
+      background-image: url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png');
+      background-image: image-set(
+        url('https://ipx.vandal.services/f_webp/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
+          type('image/webp'),
+        url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
+          type('image/png')
+      );
+    }
+    .bg-pattern-gradient-with-overlay {
+      @apply bg-[length:93.3px_19.5px] mt-[2px] lg:mt-1 lg:bg-[length:155.1px_32.5px] relative;
+      background-image: url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png');
+      background-image: image-set(
+        url('https://ipx.vandal.services/f_webp/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
+          type('image/webp'),
+        url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
+          type('image/png')
+      );
+    }
+    .bg-pattern-gradient-with-overlay:before {
+      z-index: 2;
+      position: absolute;
+      content: ' ';
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 1) 100%
+      );
+    }
+  </style>
 </BaseLayout>
-<style>
-  .bg-pattern-gradient-with-overlay {
-    @apply bg-[length:93.3px_19.5px] mt-[2px] lg:mt-1 lg:bg-[length:155.1px_32.5px] relative;
-    background-image: url(/images/belly-pattern.png);
-  }
-  .bg-pattern-gradient-with-overlay:before {
-    z-index: 2;
-    position: absolute;
-    content: ' ';
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(255, 255, 255, 1) 100%
-    );
-  }
-</style>

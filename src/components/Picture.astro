@@ -1,0 +1,116 @@
+---
+import { getImageUrl } from '../utils'
+
+const breakpoints = {
+  xl: 1280,
+  lg: 1024,
+  sm: 640,
+  // md: 768,
+  xs: 0,
+}
+
+interface Variant {
+  width: number
+  height: number
+}
+
+interface Props {
+  imageSrc: string
+  imageAlt: string
+  variants: {
+    [key in keyof typeof breakpoints]?: {
+      width: number
+      height: number
+    }
+  }
+  webp?: boolean
+}
+
+const { imageSrc, imageAlt, webp = true, variants } = Astro.props
+
+function createSrcset({
+  imageSrc,
+  size,
+  webp,
+}: {
+  imageSrc: string
+  size: Variant
+  webp: boolean
+}) {
+  let srcset = ''
+
+  const width = size?.width || 343
+  const height = size?.height || 343
+  const format = webp ? 'f_webp' : ''
+
+  const sizes = [1, 1.5, 2, 3]
+
+  sizes.forEach((density) => {
+    const size = {
+      width: Math.round(width * density),
+      height: Math.round(height * density),
+    }
+    srcset += `${getImageUrl(imageSrc, `${format},w_${size.width},h_${size.height}`)} ${density}x,`
+  })
+
+  return srcset.slice(0, -2)
+}
+
+const tailwindSizeClass = (
+  variant: Variant,
+  breakpoint?: keyof typeof breakpoints,
+) => {
+  if (!breakpoint || breakpoint === 'xs')
+    return `w-[${variant.width}px] h-[${variant.height}px]`
+  return `${breakpoint}:w-[${variant.width}px] ${breakpoint}:h-[${variant.height}px]`
+}
+
+const className = [
+  `aspect-square rounded-lg`,
+  Object.entries(variants).map(([breakpoint, variant]) =>
+    tailwindSizeClass(variant, breakpoint as keyof typeof breakpoints),
+  ),
+]
+  .flat()
+  .join(' ')
+---
+
+<picture>
+  {/* Generate sources based on breakpoints and device pixel densities */}
+  {
+    variants &&
+      Object.entries(variants).map(([breakpoint, size]) => {
+        const minWidth = breakpoints[breakpoint as keyof typeof breakpoints]
+        const source = {
+          media: minWidth ? `(min-width: ${minWidth}px)` : undefined,
+        }
+
+        return (
+          <>
+            {webp && (
+              <source
+                type='image/webp'
+                {...source}
+                srcset={createSrcset({ imageSrc, size, webp })}
+              />
+            )}
+            <source
+              {...source}
+              srcset={createSrcset({ imageSrc, size, webp })}
+            />
+          </>
+        )
+      })
+  }
+
+  <img
+    src={getImageUrl(
+      imageSrc,
+      `w_${variants.xs?.width},h_${variants.xs?.height}`,
+    )}
+    alt={imageAlt}
+    class={className}
+    loading='lazy'
+    decoding='async'
+  />
+</picture>
