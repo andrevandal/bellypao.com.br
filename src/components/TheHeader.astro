@@ -66,34 +66,50 @@ import BaseButton from './BaseButton.astro'
       class='absolute left-0 right-0 bottom-0 opacity-70 mix-blend-lighten'
     >
       <source
-        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_2500,h_1080,f_webp')} 1x, 
-        ${getImageUrl('images/primeira-dobra.png', 'w_3750,h_1620,f_webp')} 1.5x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_5000,h_2160,f_webp')} 2x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_7500,h_3240,f_webp')} 3x`}
+        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_1024,f_webp')} 1x, 
+        ${getImageUrl('images/primeira-dobra.png', 'w_1536,f_webp')} 1.5x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_2048,f_webp')} 2x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_3072,f_webp')} 3x`}
         type='image/webp'
         media='(min-width: 1024px)'
       />
       <source
-        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_2500,h_1080')} 1x, 
-        ${getImageUrl('images/primeira-dobra.png', 'w_3750,h_1620')} 1.5x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_5000,h_2160')} 2x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_7500,h_3240')} 3x`}
+        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_1024')} 1x, 
+        ${getImageUrl('images/primeira-dobra.png', 'w_1536')} 1.5x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_2048')} 2x,
+        ${getImageUrl('images/primeira-dobra.png', 'w_3072')} 3x`}
         type='image/png'
         media='(min-width: 1024px)'
       />
       <source
-        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_1080,h_800')} 1x, 
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1620,h_1200')} 1.5x,
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_2160,h_1600')} 2x,
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_3240,h_2400')} 3x`}
-        type='image/png'
+        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_640,f_webp')} 1x, 
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_960,f_webp')} 1.5x,
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1280,f_webp')} 2x,
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1600,f_webp')} 3x`}
+        type='image/webp'
+        media='(min-width: 640px)'
       />
       <source
-        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_1080,h_800,f_webp')} 1x, 
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1620,h_1200,f_webp')} 1.5x,
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_2160,h_1600,f_webp')} 2x,
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_3240,h_2400,f_webp')} 3x`}
+        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_640')} 1x, 
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_960')} 1.5x,
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1280')} 2x,
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1600')} 3x`}
+        type='image/png'
+        media='(min-width: 640px)'
+      />
+      <source
+        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_375,f_webp')} 1x, 
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_563,f_webp')} 1.5x,
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_750,f_webp')} 2x,
+      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1125,f_webp')} 3x`}
         type='image/webp'
+      />
+      <source
+        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_375')} 1x, 
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_563')} 1.5x,
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_750')} 2x,
+        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1125')} 3x`}
+        type='image/png'
       />
       <img
         src={getImageUrl(
