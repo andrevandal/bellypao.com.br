@@ -10,19 +10,15 @@ import BaseButton from './BaseButton.astro'
     >
       <a href='/#topo' class='block'>
         <picture>
-          <source
-            srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_40')} 1x, 
-            ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_60')} 1.5x,
-            ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_80')} 2x,
-            ${getImageUrl('images/logo-bellypao.h144.png', 'f_webp,h_120')} 3x`}
-            type='image/webp'
-          />
           <img
-            src={getImageUrl('images/logo-bellypao.h144.png', 'h_40')}
-            srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'h_40')} 1x, 
-            ${getImageUrl('images/logo-bellypao.h144.png', 'h_60')} 1.5x,
-            ${getImageUrl('images/logo-bellypao.h144.png', 'h_80')} 2x,
-            ${getImageUrl('images/logo-bellypao.h144.png', 'h_120')} 3x`}
+            src={getImageUrl(
+              'images/logo-bellypao.h144.png',
+              'f_auto,q_90,h_40',
+            )}
+            srcset={`${getImageUrl('images/logo-bellypao.h144.png', 'f_auto,q_90,h_40')} 1x, 
+            ${getImageUrl('images/logo-bellypao.h144.png', 'f_auto,q_90,h_60')} 1.5x,
+            ${getImageUrl('images/logo-bellypao.h144.png', 'f_auto,q_90,h_80')} 2x,
+            ${getImageUrl('images/logo-bellypao.h144.png', 'f_auto,q_90,h_120')} 3x`}
             alt='Logo Belly Pão'
             width='160'
             height='40'
@@ -66,58 +62,18 @@ import BaseButton from './BaseButton.astro'
       class='absolute left-0 right-0 bottom-0 opacity-70 mix-blend-lighten'
     >
       <source
-        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_1024,f_webp')} 1x, 
-        ${getImageUrl('images/primeira-dobra.png', 'w_1536,f_webp')} 1.5x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_2048,f_webp')} 2x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_3072,f_webp')} 3x`}
-        type='image/webp'
-        media='(min-width: 1024px)'
-      />
-      <source
-        srcset={`${getImageUrl('images/primeira-dobra.png', 'w_1024')} 1x, 
-        ${getImageUrl('images/primeira-dobra.png', 'w_1536')} 1.5x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_2048')} 2x,
-        ${getImageUrl('images/primeira-dobra.png', 'w_3072')} 3x`}
-        type='image/png'
-        media='(min-width: 1024px)'
-      />
-      <source
-        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_640,f_webp')} 1x, 
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_960,f_webp')} 1.5x,
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1280,f_webp')} 2x,
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1600,f_webp')} 3x`}
-        type='image/webp'
+        srcset=`${getImageUrl('images/primeira-dobra.png', 'w_1216,q_90,f_auto')} 1216w, ${getImageUrl('images/primeira-dobra.png', 'w_960,q_90,f_auto')} 960w, ${getImageUrl('images/primeira-dobra.png', 'w_640,q_90,f_auto')} 640w, ${getImageUrl('images/primeira-dobra.png', 'w_576,q_90,f_auto')} 576w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_375,q_90,f_auto')}`
+        sizes='(min-width: 1280px) 1216px, (min-width: 1024px) 960px, 640px'
         media='(min-width: 640px)'
       />
       <source
-        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_640')} 1x, 
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_960')} 1.5x,
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1280')} 2x,
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1600')} 3x`}
-        type='image/png'
-        media='(min-width: 640px)'
-      />
-      <source
-        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_375,f_webp')} 1x, 
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_563,f_webp')} 1.5x,
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_750,f_webp')} 2x,
-      ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1125,f_webp')} 3x`}
-        type='image/webp'
-      />
-      <source
-        srcset={`${getImageUrl('images/primeira-dobra_mobile.png', 'w_375')} 1x, 
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_563')} 1.5x,
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_750')} 2x,
-        ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1125')} 3x`}
-        type='image/png'
+        srcset=`${getImageUrl('images/primeira-dobra_mobile.png', 'w_1920,q_90,f_auto')} 1920w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1280,q_90,f_auto')} 1280w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1125,q_90,f_auto')} 1125w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_960,q_90,f_auto')} 960w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_750,q_90,f_auto')} 750w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_640,q_90,f_auto')} 640w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_563,q_90,f_auto')} 563w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_375,q_90,f_auto')} 375w`
+        media='(max-width: 639px)'
       />
       <img
-        src={getImageUrl(
-          'images/primeira-dobra_mobile.png',
-          'w_1080,h_800,f_webp',
-        )}
-        alt=''
-        class='w-full h-auto aspect-[1080/800] mt-auto lg:aspect-[2500/1080] object-cover'
+        src={getImageUrl('images/primeira-dobra_mobile.png', 'w_1080,f_auto')}
+        alt='Pão com manteiga'
+        class='w-full h-auto aspect-[375/278] mt-auto sm:max-w-[640px] sm:px-8 sm:mx-auto sm:aspect-[640/276] lg:max-w-[1024px] xl:max-w-[1280px] object-cover'
         loading='lazy'
         decoding='async'
       />

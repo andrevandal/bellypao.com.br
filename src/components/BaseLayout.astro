@@ -8,10 +8,11 @@ type Props = {
   image: string
   url: URL
   schema?: Record<string, unknown>
+  links?: Record<string, unknown>[]
 }
 const { isDev, PUBLIC_GOOGLE_ANALYTICS_ID: googleAnalyticsId } = import.meta.env
 
-const { title, description, schema, url } = Astro.props
+const { title, description, schema, url, links } = Astro.props
 const domain = url.hostname
 const image = new URL(Astro.props.image, Astro.site ?? url).toString()
 ---
@@ -35,6 +36,7 @@ const image = new URL(Astro.props.image, Astro.site ?? url).toString()
     <meta name='twitter:description' content={description} />
     <meta name='twitter:image' content={image} />
     <meta name='twitter:card' content='summary_large_image' />
+    {links?.map((link) => <link {...link} />)}
     <link
       href='/css/fonts.css'
       rel='preload'

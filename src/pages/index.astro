@@ -1,4 +1,6 @@
 ---
+import { getImageUrl } from '../utils'
+
 import BaseLayout from '../components/BaseLayout.astro'
 import BaseButton from '../components/BaseButton.astro'
 import Figure from '../components/Figure.astro'
@@ -88,6 +90,24 @@ const products = [
     imageCaption: 'Bolo de Chocolate',
   },
 ]
+
+const links = [
+  {
+    rel: 'preload',
+    as: 'image',
+    href: getImageUrl('images/primeira-dobra.png', 'w_576,q_90,f_auto'),
+    imagesizes: '(min-width: 1280px) 1216px, (min-width: 1024px) 960px, 640px',
+    imagesrcset: `${getImageUrl('images/primeira-dobra.png', 'w_1216,q_90,f_auto')} 1216w, ${getImageUrl('images/primeira-dobra.png', 'w_960,q_90,f_auto')} 960w, ${getImageUrl('images/primeira-dobra.png', 'w_640,q_90,f_auto')} 640w, ${getImageUrl('images/primeira-dobra.png', 'w_576,q_90,f_auto')}`,
+    media: '(min-width: 640px)',
+  },
+  {
+    rel: 'preload',
+    as: 'image',
+    href: getImageUrl('images/primeira-dobra_mobile.png', 'w_375,q_90,f_auto'),
+    imagesrcset: `${getImageUrl('images/primeira-dobra_mobile.png', 'w_1920,q_90,f_auto')} 1920w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1280,q_90,f_auto')} 1280w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_1125,q_90,f_auto')} 1125w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_960,q_90,f_auto')} 960w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_750,q_90,f_auto')} 750w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_640,q_90,f_auto')} 640w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_563,q_90,f_auto')} 563w, ${getImageUrl('images/primeira-dobra_mobile.png', 'w_375,q_90,f_auto')} 375w`,
+    media: '(max-width: 639px)',
+  },
+]
 ---
 
 <BaseLayout
@@ -96,10 +116,11 @@ const products = [
   image='/images/banner.png'
   url={Astro.url}
   schema={schema}
+  links={links}
 >
   <section
     slot='header'
-    class='flex flex-col items-center justify-center gap-y-6 pt-12 sm:pt-6 pb-60 lg:py-[6.875rem] lg:gap-y-4 xl:py-[7.5rem]'
+    class='flex flex-col items-center justify-center gap-y-6 mt-2 pt-10 sm:pt-6 pb-[10.5rem] sm:pb-[6.5rem] lg:pt-16 lg:pb-[9.25rem] lg:gap-y-4 xl:pt-20 xl:pb-[10.75rem]'
   >
     <h1
       class='font-fields font-extrabold px-6 text-[2.5rem] leading-[3rem] text-center text-[#FFECCC] lg:text-[4rem] lg:leading-[4.5rem] lg:max-w-[802px] lg:px-0'
@@ -154,11 +175,10 @@ const products = [
             imageSrc='images/sessao_ingredientes.png'
             imageAlt='Ingredientes'
             variants={{
-              xs: { width: 343, height: 265 },
-              lg: { width: 468, height: 362 },
               xl: { width: 517, height: 400 },
+              lg: { width: 468, height: 362 },
+              xs: { width: 343, height: 265 },
             }}
-            webp
           />
         </div>
       </div>
@@ -226,12 +246,11 @@ const products = [
                 imageSrc={imageSrc}
                 imageAlt={imageAlt}
                 variants={{
-                  xs: { width: 343, height: 343 },
-                  sm: { width: 280, height: 280 },
-                  lg: { width: 304, height: 304 },
                   xl: { width: 389, height: 389 },
+                  lg: { width: 304, height: 304 },
+                  sm: { width: 280, height: 280 },
+                  xs: { width: 343, height: 343 },
                 }}
-                webp
               />
             </Figure>
           ))
@@ -283,11 +302,10 @@ const products = [
             imageSrc='images/sessao_quem-somos.png'
             imageAlt='Pães sendo cortados'
             variants={{
-              xs: { width: 343, height: 265 },
-              lg: { width: 468, height: 362 },
               xl: { width: 517, height: 400 },
+              lg: { width: 468, height: 362 },
+              xs: { width: 343, height: 265 },
             }}
-            webp
           >
             <div
               class='absolute top-[49%] lg:top-[43%] left-[-24px] w-12 h-12 min-w-12 flex justify-center items-center bg-brown-700 rounded-full text-[#FFAA33]'
@@ -330,23 +348,11 @@ const products = [
   </section>
   <style>
     .bg-pattern {
-      background-image: url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png');
-      background-image: image-set(
-        url('https://ipx.vandal.services/f_webp/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
-          type('image/webp'),
-        url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
-          type('image/png')
-      );
+      background-image: url('https://ipx.vandal.services/f_auto,q_90/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png');
     }
     .bg-pattern-gradient-with-overlay {
       @apply bg-[length:93.3px_19.5px] mt-[2px] lg:mt-1 lg:bg-[length:155.1px_32.5px] relative;
-      background-image: url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png');
-      background-image: image-set(
-        url('https://ipx.vandal.services/f_webp/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
-          type('image/webp'),
-        url('https://ipx.vandal.services/_/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png')
-          type('image/png')
-      );
+      background-image: url('https://ipx.vandal.services/f_auto,q_90/https://files.vandal.services/bellypao.com.br/images/belly-pattern.png');
     }
     .bg-pattern-gradient-with-overlay:before {
       z-index: 2;

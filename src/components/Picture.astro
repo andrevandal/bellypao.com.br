@@ -23,25 +23,15 @@ interface Props {
       height: number
     }
   }
-  webp?: boolean
 }
 
-const { imageSrc, imageAlt, webp = true, variants } = Astro.props
+const { imageSrc, imageAlt, variants } = Astro.props
 
-function createSrcset({
-  imageSrc,
-  size,
-  webp,
-}: {
-  imageSrc: string
-  size: Variant
-  webp: boolean
-}) {
+function createSrcset({ imageSrc, size }: { imageSrc: string; size: Variant }) {
   let srcset = ''
 
   const width = size?.width || 343
   const height = size?.height || 343
-  const format = webp ? 'f_webp' : ''
 
   const sizes = [1, 1.5, 2, 3]
 
@@ -50,7 +40,7 @@ function createSrcset({
       width: Math.round(width * density),
       height: Math.round(height * density),
     }
-    srcset += `${getImageUrl(imageSrc, `${format},w_${size.width},h_${size.height}`)} ${density}x,`
+    srcset += `${getImageUrl(imageSrc, `f_auto,q_90,w_${size.width},h_${size.height}`)} ${density}x,`
   })
 
   return srcset.slice(0, -2)
@@ -87,17 +77,7 @@ const className = [
 
         return (
           <>
-            {webp && (
-              <source
-                type='image/webp'
-                {...source}
-                srcset={createSrcset({ imageSrc, size, webp })}
-              />
-            )}
-            <source
-              {...source}
-              srcset={createSrcset({ imageSrc, size, webp })}
-            />
+            <source {...source} srcset={createSrcset({ imageSrc, size })} />
           </>
         )
       })
