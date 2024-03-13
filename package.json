@@ -37,7 +37,7 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "prepare": "pnpx simple-git-hooks",
+    "prepare": "simple-git-hooks",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
